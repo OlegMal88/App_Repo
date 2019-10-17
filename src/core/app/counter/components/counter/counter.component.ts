@@ -24,17 +24,11 @@ export class CounterComponent implements OnInit {
   }
 
   increment() {
-    this.counter++;
-    this.counterValue.emit(this.counter);
+    this.counterValue.emit();
   }
 
   decrement() {
-    if (!this.counter) {
-      return;
-    }
-
-    this.counter--;
-    this.counterValue.emit(this.counter);
+    this.counterValue.emit();
   }
 
   save() {

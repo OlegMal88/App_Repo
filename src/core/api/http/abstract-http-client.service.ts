@@ -14,7 +14,8 @@ export class AbstractHttpClient {
   constructor(private http: HttpClient) { }
 
   getData<T>(): Observable<T[]> {
-       return this.http.get<T[]>(`${this.SERVER_URL + this.configUrl.url}`)
+      console.log(`${this.SERVER_URL + this.configUrl.url}`);
+      return this.http.get<T[]>(`${this.SERVER_URL + this.configUrl.url}`)
                        .pipe(catchError(this.handleError));
   }
 

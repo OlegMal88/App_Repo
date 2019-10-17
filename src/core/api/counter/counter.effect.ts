@@ -23,7 +23,10 @@ export class ProductEffects {
     mergeMap((actions: any) => this.counterService
       .getData()
       .pipe(
-        map(([counter]: any) => Counter.getCurrentValueSuccess({counter})),
+        map(([counter]: any) => {
+          console.log(counter)
+          return Counter.getCurrentValueSuccess({counter})
+        }),
         catchError(err => of(Counter.getCurrentValueError(err)))
       ))
   );
