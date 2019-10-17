@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as CounterState from '../../../state/counter';
-import { getCurrentValue } from '@state/counter/actions';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import * as Counter from '@state/counter';
 
 @Component({
   selector: 'app-counter-container',
@@ -11,12 +10,11 @@ import { getCurrentValue } from '@state/counter/actions';
 export class CounterContainerComponent implements OnInit {
   counter = 0;
 
-  constructor(private store: Store<CounterState.state.State>) { }
+  constructor(private store: Store<Counter.State>) {
+  }
 
   ngOnInit() {
-    this.store.dispatch(getCurrentValue);
-
-
+    this.store.dispatch(Counter.getCurrentValue);
   }
 
   increment() {
@@ -34,5 +32,4 @@ export class CounterContainerComponent implements OnInit {
   reset() {
     console.log(this.counter);
   }
-
 }

@@ -1,9 +1,11 @@
-import * as counter from './counter';
-import * as root from './root';
-import './state';
-import './store.module';
+import * as Counter from './counter';
+import * as Root from './root';
+import {State} from './state';
+import {RootStoreModule} from './store.module';
 
 export {
-  counter,
-  root,
+  Root,
+  State,
+  Counter,
+  RootStoreModule
 };
