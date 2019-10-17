@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Store, select} from '@ngrx/store';
-import * as Counter from '@state/counter';
-import { Observable } from 'rxjs';
+import {CounterContainerService} from './counter-container.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-counter-container',
@@ -9,35 +8,25 @@ import { Observable } from 'rxjs';
   styleUrls: ['./counter-container.component.css']
 })
 export class CounterContainerComponent implements OnInit {
-  counter$: Observable<Counter.State>;
 
-  constructor(private store: Store<Counter.State>) {
+  public counter$: Observable<number> = this.counterContainerService.counter$;
+
+  constructor(private counterContainerService: CounterContainerService) {
   }
 
   ngOnInit() {
-    this.store.dispatch(Counter.getCurrentValue());
-
-    // this.counter$ = this.store.pipe(
-    //   select<number>(Counter.selectors.selectCounter)
-    // );
+    this.counterContainerService.getCurrentValue();
   }
 
   increment() {
-    // console.log(this.counter);
+    this.counterContainerService.increment();
   }
 
   decrement() {
-    // if (!this.counter) {
-    //   return;
-    // }
-    // console.log(this.counter);
-  }
-
-  save() {
-    // console.log(this.counter);
+    this.counterContainerService.decrement();
   }
 
   reset() {
-    // console.log(this.counter);
+    this.counterContainerService.reset();
   }
 }

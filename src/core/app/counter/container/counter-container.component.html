@@ -1,1 +1,5 @@
-<app-counter [counter]="counter$ | async"></app-counter>
+<app-counter (increment)="increment()"
+             (decrement)="decrement()"
+             (reset)="reset()"
+             [counter]="counter$ | async">
+</app-counter>

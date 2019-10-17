@@ -3,7 +3,6 @@ import { createAction, props } from '@ngrx/store';
 const increment = createAction('[Counter Component] Increment');
 const decrement = createAction('[Counter Component] Decrement');
 const reset = createAction('[Counter Component] Reset');
-const save = createAction('[Counter Component] Save');
 
 const getCurrentValue = createAction('[Counter Component] Get Current Value');
 const getCurrentValueSuccess = createAction(
@@ -24,7 +23,6 @@ export {
   increment,
   decrement,
   reset,
-  save,
   getCurrentValue,
   getCurrentValueSuccess,
   getCurrentValueError,
