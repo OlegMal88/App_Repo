@@ -4,10 +4,12 @@ import {ROOT_REDUCER_KEY} from '@state/root/state';
 import * as Root from '@state/root';
 
 interface State {
-  [COUNTER_FEATURE_KEY]: Counter.State;
-  [ROOT_REDUCER_KEY]: Root.State;
+  [COUNTER_FEATURE_KEY]: Counter.state.State;
+  [ROOT_REDUCER_KEY]: Root.state.State;
 }
 
 export {
-  State
+  State,
+  Root,
+  Counter,
 };

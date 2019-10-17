@@ -7,7 +7,7 @@ const ROUTE_PATHS = {
 const routes: Routes = [
   {
     path: '',
-    redirectTo: `/${ROUTE_PATHS.counter}`,
+    redirectTo: '',
     pathMatch: 'full'
   },
   {

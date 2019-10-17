@@ -12,7 +12,7 @@ import * as Root from '@state/root';
     CommonModule,
     CounterStoreModule,
     StoreModule.forRoot({
-      root: Root.reducer
+      root: Root.reducer.reducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

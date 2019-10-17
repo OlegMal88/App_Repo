@@ -1,11 +1,11 @@
 const COUNTER_FEATURE_KEY = 'counter';
 
 interface State {
-  value: number;
+  counter: number;
 }
 
 const initialState: State = {
-  value: 0
+  counter: 0
 };
 
 export {

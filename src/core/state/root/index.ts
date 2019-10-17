@@ -1,4 +1,11 @@
-import * from './state';
-import * from './actions';
-import * from './reducer';
-import * from './selectors/index';
+import * as state from './state';
+import * as actions from './actions';
+import * as reducer from './reducer';
+import * as selectors from './selectors/index';
+
+export {
+  state,
+  actions,
+  reducer,
+  selectors,
+};

@@ -3,9 +3,16 @@ import * as CounterActions from './actions';
 import * as CounterState from './state';
 
 const counterReducer = createReducer(CounterState.initialState,
-  on(CounterActions.increment, state => ({...state, value: state.count + 1})),
-  on(CounterActions.decrement, state => ({...state, value: state.count - 1})),
-  on(CounterActions.reset, state => ({...state, value: 0}))
+  on(CounterActions.getCurrentValueSuccess, state => (
+    {
+      ...state,
+      counter: state.counter,
+      error: '',
+    })
+  ),
+  on(CounterActions.increment, state => ({...state, counter: state.counter + 1})),
+  on(CounterActions.decrement, state => ({...state, counter: state.counter - 1})),
+  on(CounterActions.reset, state => ({...state, counter: 0}))
 );
 
 function reducer(state: CounterState.State, action: Action) {

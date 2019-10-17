@@ -1,1 +1,5 @@
-import * from './selectors';
+import * as selectors from './selectors';
+
+export {
+  selectors,
+};
