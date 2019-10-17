@@ -2,6 +2,17 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@state/*": ["src/core/state/*"],
+      "@state": ["src/core/state/index"],
+      "@features/*": ["src/core/features/*"],
+      "@features": ["src/core/features/index"],
+      "@shared/*": ["src/core/shared/*"],
+      "@shared": ["src/core/shared/index"],
+      "@api/*": ["src/core/api/*"],
+      "@api": ["src/core/api/index"],
+      "@testing/*": ["src/core/testing/*"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
