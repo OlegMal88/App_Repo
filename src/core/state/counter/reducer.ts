@@ -3,13 +3,13 @@ import * as CounterActions from './actions';
 import * as CounterState from './state';
 
 const counterReducer = createReducer(CounterState.initialState,
-  on(CounterActions.getCurrentValueSuccess, state => (
-    {
+  on(CounterActions.getCurrentValueSuccess, (state, payload) => {
+    return {
       ...state,
-      counter: state.counter,
+      counter: payload.counter,
       error: '',
-    })
-  ),
+    };
+  }),
   on(CounterActions.increment, state => ({...state, counter: state.counter + 1})),
   on(CounterActions.decrement, state => ({...state, counter: state.counter - 1})),
   on(CounterActions.reset, state => ({...state, counter: 0}))

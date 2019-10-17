@@ -8,7 +8,7 @@ import {mergeMap, map, catchError} from 'rxjs/operators';
 import {of, Observable} from 'rxjs';
 
 @Injectable()
-export class ProductEffects {
+export class CounterEffects {
 
   constructor(
     private actions$: Actions,
@@ -24,8 +24,8 @@ export class ProductEffects {
       .getData()
       .pipe(
         map(([counter]: any) => {
-          console.log(counter)
-          return Counter.getCurrentValueSuccess({counter})
+          console.log(counter);
+          return Counter.getCurrentValueSuccess(counter)
         }),
         catchError(err => of(Counter.getCurrentValueError(err)))
       ))

@@ -1,5 +1,4 @@
 export * from './selectors/index';
-export * from './selectors/index';
 export * from './actions';
 export * from './reducer';
 export * from './state';

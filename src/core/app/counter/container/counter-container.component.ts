@@ -12,6 +12,8 @@ export class CounterContainerComponent {
   public counter$: Observable<number> = this.counterContainerService.counter$;
 
   constructor(private counterContainerService: CounterContainerService) {
+
+    console.log(this.counter$)
   }
 
   increment() {
@@ -24,5 +26,9 @@ export class CounterContainerComponent {
 
   reset() {
     this.counterContainerService.reset();
+  }
+
+  getAsyncValue() {
+    this.counterContainerService.getAsyncValue();
   }
 }

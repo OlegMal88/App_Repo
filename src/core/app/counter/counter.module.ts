@@ -4,7 +4,7 @@ import { CounterContainerComponent } from './container/counter-container.compone
 import { CounterComponent } from './components/counter/counter.component';
 import { CounterRoutingModule } from './counter.routing';
 import { EffectsModule } from '@ngrx/effects';
-import { ProductEffects } from '@api/counter/counter.effect';
+import { CounterEffects } from '@api/counter/counter.effect';
 
 
 
@@ -13,7 +13,7 @@ import { ProductEffects } from '@api/counter/counter.effect';
   imports: [
     CommonModule,
     CounterRoutingModule,
-    EffectsModule.forFeature([ProductEffects])
+    EffectsModule.forFeature([CounterEffects])
   ]
 })
 export class CounterModule { }

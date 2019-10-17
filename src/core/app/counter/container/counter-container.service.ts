@@ -29,6 +29,10 @@ class CounterContainerService {
   reset() {
     this.store.dispatch(Counter.reset());
   }
+
+  getAsyncValue() {
+    this.store.dispatch(Counter.getCurrentValue());
+  }
 }
 
 export {CounterContainerService};
