@@ -7,15 +7,11 @@ import {Observable} from 'rxjs';
   templateUrl: './counter-container.component.html',
   styleUrls: ['./counter-container.component.css']
 })
-export class CounterContainerComponent implements OnInit {
+export class CounterContainerComponent {
 
   public counter$: Observable<number> = this.counterContainerService.counter$;
 
   constructor(private counterContainerService: CounterContainerService) {
-  }
-
-  ngOnInit() {
-    this.counterContainerService.getCurrentValue();
   }
 
   increment() {

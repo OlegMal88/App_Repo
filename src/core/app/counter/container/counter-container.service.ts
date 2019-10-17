@@ -29,10 +29,6 @@ class CounterContainerService {
   reset() {
     this.store.dispatch(Counter.reset());
   }
-
-  getCurrentValue() {
-    this.store.dispatch(Counter.getCurrentValue());
-  }
 }
 
 export {CounterContainerService};
