@@ -10,11 +10,11 @@ export class DataService implements InMemoryDbService {
   }
 
   createDb() {
-    const data = {
-      counter: {
-        value: 0,
+    const data = [
+      {
+        counter: 0
       }
-    };
+    ];
 
     return { data };
   }

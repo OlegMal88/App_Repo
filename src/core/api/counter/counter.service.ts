@@ -3,8 +3,9 @@ import { AbstractHttpClient } from '@api/http/abstract-http-client.service';
 import { HttpConfig } from '@api/http/http-config.model';
 import { repositoryConfig } from '@api/http/repositories.config';
 
-
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class CounterService extends AbstractHttpClient {
-    config: HttpConfig = repositoryConfig.counter;
+  configUrl: HttpConfig = repositoryConfig.counter;
 }

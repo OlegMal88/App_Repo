@@ -8,6 +8,7 @@ import {routes} from './app.routing';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from '@api/http/data.service';
 import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EffectsModule } from '@ngrx/effects';
     RouterModule.forRoot(routes, {useHash: true}),
     InMemoryWebApiModule.forRoot(DataService),
     EffectsModule.forRoot([]),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

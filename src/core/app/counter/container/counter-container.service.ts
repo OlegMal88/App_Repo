@@ -31,7 +31,7 @@ class CounterContainerService {
   }
 
   getCurrentValue() {
-    this.store.dispatch(Counter.getCurrentValue);
+    this.store.dispatch(Counter.getCurrentValue());
   }
 }
 
