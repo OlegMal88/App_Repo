@@ -31,4 +31,8 @@ export class CounterContainerComponent implements OnInit {
     console.log(this.counter);
   }
 
+  reset() {
+    console.log(this.counter);
+  }
+
 }

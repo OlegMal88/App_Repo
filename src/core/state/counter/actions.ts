@@ -1,4 +1,4 @@
-import {createAction} from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
 const increment = createAction('[Counter Component] Increment');
 const decrement = createAction('[Counter Component] Decrement');
@@ -8,7 +8,7 @@ const save = createAction('[Counter Component] Save');
 const getCurrentValue = createAction('[Counter Component] Get Current Value');
 const getCurrentValueSuccess = createAction(
   '[Counter Component] Get Current Value Success',
-  (response: any) => response.counter
+  props<{counter: number}>()
 );
 const getCurrentValueError = createAction(
   '[Counter Component] Get Current Value Error',
@@ -17,7 +17,7 @@ const getCurrentValueError = createAction(
 const saveCurrentValueSuccess = createAction('[Counter Component] Save Current Value Success');
 const saveCurrentValueError = createAction(
   '[Counter Component] Save Current Value Error',
-  (response: any) => response.counter
+  props<{ counter: number }>()
 );
 
 export {

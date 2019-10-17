@@ -21,7 +21,7 @@ export class ProductEffects {
         // TODO add type action
         mergeMap((actions: any) => {
           return this.counterService.getData().pipe(
-            map((counter) => fromCounter.actions.getCurrentValueSuccess(counter)),
+            map(([counter]: any) => fromCounter.actions.getCurrentValueSuccess({counter})),
             catchError(err => of(fromCounter.actions.getCurrentValueError(err)))
           );
       })

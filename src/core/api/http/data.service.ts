@@ -8,13 +8,13 @@ export class DataService implements InMemoryDbService {
 
   constructor() { }
 
-  createDb(){
+  createDb() {
     const data = {
       counter: {
         value: 0,
       }
     };
- 
+
     return { data };
   }
 }

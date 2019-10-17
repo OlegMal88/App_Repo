@@ -34,4 +34,8 @@ export class CounterComponent implements OnInit {
     this.saveCounterValue.emit();
   }
 
+  reset() {
+    this.saveCounterValue.emit();
+  }
+
 }
