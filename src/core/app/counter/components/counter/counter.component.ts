@@ -11,38 +11,30 @@ import {
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent implements OnInit {
+class CounterComponent {
   @Input() counter = 0;
 
-  @Output() counterValue: EventEmitter<number> = new EventEmitter<number>();
-  @Output() saveCounterValue: EventEmitter<number> = new EventEmitter<number>();
+  @Output() increment: EventEmitter<void> = new EventEmitter<void>();
+  @Output() decrement: EventEmitter<void> = new EventEmitter<void>();
+  @Output() reset: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() {
+  incrementHandler() {
+    this.increment.emit();
   }
 
-  ngOnInit() {
-  }
-
-  increment() {
-    this.counter++;
-    this.counterValue.emit(this.counter);
-  }
-
-  decrement() {
+  decrementHandler() {
     if (!this.counter) {
       return;
     }
 
-    this.counter--;
-    this.counterValue.emit(this.counter);
+    this.decrement.emit();
   }
 
-  save() {
-    this.saveCounterValue.emit();
+  resetHandler() {
+    this.reset.emit();
   }
-
-  reset() {
-    this.saveCounterValue.emit();
-  }
-
 }
+
+export {
+  CounterComponent
+};

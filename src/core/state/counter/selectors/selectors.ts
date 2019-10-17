@@ -1,15 +1,15 @@
 import {createFeatureSelector, createSelector, MemoizedSelector} from '@ngrx/store';
-import * as CounterState from '../state';
+import {COUNTER_FEATURE_KEY, State} from '../state';
 
-const getCounter = (state: CounterState.State): number => state.counter;
+const getCounter = (state: State): number => state.counter;
 
-const selectState: MemoizedSelector<object, CounterState.State> =
-  createFeatureSelector<CounterState.State>(CounterState.COUNTER_FEATURE_KEY);
+const selectState: MemoizedSelector<object, State> =
+  createFeatureSelector<State>(COUNTER_FEATURE_KEY);
 
-const selectCounter: MemoizedSelector<CounterState.State, number> =
+const selectCounter: MemoizedSelector<State, number> =
   createSelector(
     selectState,
-    getCounter,
+    getCounter
   );
 
 export {
