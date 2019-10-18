@@ -7,7 +7,7 @@ import {HttpConfig} from '@api/mockServer/http-config.model';
 @Injectable({
   providedIn: 'root'
 })
-class AbstractHttpClient {
+class BaseHttp {
   SERVER_URL = 'http://localhost:8080/api';
   configUrl: HttpConfig;
 
@@ -53,5 +53,5 @@ class AbstractHttpClient {
 }
 
 export {
-  AbstractHttpClient
+  BaseHttp
 };
