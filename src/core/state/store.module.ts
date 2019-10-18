@@ -6,7 +6,7 @@ import {StoreModule} from '@ngrx/store';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import * as Root from '@state/root';
 import {CounterStoreModule} from '@state/counter';
-import {CustomSerializer} from './router-serializer'
+import {CustomSerializer} from './router-utils'
 
 @NgModule({
   declarations: [],

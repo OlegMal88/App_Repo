@@ -4,11 +4,11 @@ import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import * as CounterActions from '@state/counter/actions';
 
-import {catchError, map, switchMap, pairwise, startWith, filter} from 'rxjs/operators';
+import {catchError, map, switchMap, filter} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
-import { ROUTE_PATHS } from 'src/core/app.routing';
-import { RouterData, DEFAULT_ROUTER_STATE, RouterAction, RouterState } from '@state/router-serializer';
-import { ROUTER_NAVIGATED, RouterNavigatedAction } from '@ngrx/router-store';
+import {ROUTE_PATHS } from 'src/core/app.routing';
+import {RouterData, routerNavigatedState} from '@state/router-utils';
+
 
 @Injectable()
 class CounterEffects {
@@ -35,15 +35,7 @@ class CounterEffects {
 
   @Effect()
   public dispatchStartCounterOnNavigationEnd$ = this.actions$.pipe(
-    ofType<RouterNavigatedAction<RouterState>>(ROUTER_NAVIGATED),
-    startWith(DEFAULT_ROUTER_STATE),
-    pairwise(),
-    map((actions: [RouterAction, RouterAction]) => ({
-      deactivateUrl: actions[0].payload.routerState.url,
-      deactivateParams: actions[0].payload.routerState.params || {},
-      activatedUrl: actions[1].payload.routerState.url,
-      activatedParams: actions[1].payload.routerState.params || {},
-    })),
+    routerNavigatedState,
     filter((data: RouterData) => data.activatedUrl.includes(ROUTE_PATHS.counter)),
     map((data: RouterData) => 
       CounterActions.getCurrentValueSuccess({
