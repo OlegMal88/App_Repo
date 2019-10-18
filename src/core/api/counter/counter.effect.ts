@@ -2,13 +2,13 @@ import {CounterService} from './counter.service';
 import {Action} from '@ngrx/store';
 import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
-import * as Counter from '@state/counter';
+import * as CounterActions from '@state/counter/actions';
 
-import {mergeMap, map, catchError} from 'rxjs/operators';
-import {of, Observable} from 'rxjs';
+import {catchError, map, switchMap} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
 
 @Injectable()
-export class CounterEffects {
+class CounterEffects {
 
   constructor(
     private actions$: Actions,
@@ -18,12 +18,18 @@ export class CounterEffects {
 
   @Effect()
   loadCounter$: Observable<Action> = this.actions$.pipe(
-    ofType(Counter.getCurrentValue),
+    ofType(CounterActions.getCurrentValue),
     // TODO add type action
-    mergeMap((action: any) => this.counterService.getData()
-      .pipe(
-        map(([counter]: any) => Counter.getCurrentValueSuccess(counter)),
-        catchError(err => of(Counter.getCurrentValueError(err)))
-      ))
+    switchMap(() => this.loadCounterHandler())
   );
+
+  private loadCounterHandler(): Observable<Action> {
+    return this.counterService
+      .getData()
+      .pipe(
+        map(([counter]: any) => CounterActions.getCurrentValueSuccess(counter)),
+        catchError(err => of(CounterActions.getCurrentValueError(err))));
+  }
 }
+
+export {CounterEffects};
