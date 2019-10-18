@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { HttpConfig } from './http-config.model';
+import { HttpConfig } from '../mockServer/http-config.model';
 
 @Injectable({
   providedIn: 'root'

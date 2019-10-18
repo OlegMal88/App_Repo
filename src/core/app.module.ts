@@ -6,9 +6,11 @@ import {AppComponent} from './app.component';
 import {RootStoreModule} from '@state/store.module';
 import {routes} from './app.routing';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { DataService } from '@api/http/data.service';
+import { DataService } from '@api/mockServer/data.service';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import bootstrap from "bootstrap";
+
 
 @NgModule({
   declarations: [
