@@ -9,7 +9,6 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from '@api/mockServer/data.service';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
-import bootstrap from "bootstrap";
 
 
 @NgModule({

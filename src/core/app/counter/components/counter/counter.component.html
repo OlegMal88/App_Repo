@@ -1,8 +1,11 @@
 <div class="counter">
-  Counter: <b>{{counter}}</b>
-  <button (click)="incrementHandler()">+</button>
-  <button (click)="decrementHandler()">-</button>
-  <button (click)="resetHandler()">Reset</button>
-  <button (click)="getAsyncValue()">Get async value</button>
+  <div>
+      Counter: <b>{{counter}}</b>
+  </div>
+<div class="counter-btns">
+    <button class="btn btn-info" (click)="incrementHandler()">+</button>
+    <button class="btn btn-info" (click)="decrementHandler()">-</button>
+    <button class="btn btn-danger" (click)="resetHandler()">Reset</button>
+    <button class="btn btn-outline-dark" (click)="getAsyncValue()">Get async value</button>
 </div>
-
+</div>
