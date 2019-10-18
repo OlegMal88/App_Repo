@@ -8,16 +8,12 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: ROUTE_PATHS.counter,
-    loadChildren: () => import('./app/counter/counter.module')
-      .then(m => m.CounterModule)
-  }
+    loadChildren: () => import('./app/counter/counter.module').then(m => m.CounterModule),
+  },
 ];
 
-export {
-  routes,
-  ROUTE_PATHS
-};
+export { routes, ROUTE_PATHS };
