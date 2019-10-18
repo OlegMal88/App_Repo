@@ -3,9 +3,10 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {Store, StoreModule} from '@ngrx/store';
 import {MockState} from '@ngrx/store/testing';
+import {CounterMockComponent} from '@testing/counter/counter-mock.component';
 
 const directives = [];
-const components = [];
+const components = [CounterMockComponent];
 const pipes = [];
 
 @NgModule({
