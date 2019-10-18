@@ -4,7 +4,7 @@ import {InMemoryDbService} from 'angular-in-memory-web-api';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService implements InMemoryDbService {
+class DataService implements InMemoryDbService {
 
   constructor() {
   }
@@ -17,6 +17,8 @@ export class DataService implements InMemoryDbService {
       }
     ];
 
-    return { counter };
+    return {counter};
   }
 }
+
+export {DataService};

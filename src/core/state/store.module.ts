@@ -2,9 +2,9 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../../environments/environment';
-import {CounterStoreModule} from './counter/store-feature.module';
 import {StoreModule} from '@ngrx/store';
 import * as Root from '@state/root';
+import {CounterStoreModule} from '@state/counter';
 
 @NgModule({
   declarations: [],

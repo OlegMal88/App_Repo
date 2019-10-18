@@ -1,19 +1,24 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CounterContainerComponent } from './container/counter-container.component';
-import { CounterComponent } from './components/counter/counter.component';
-import { CounterRoutingModule } from './counter.routing';
-import { EffectsModule } from '@ngrx/effects';
-import { CounterEffects } from '@api/counter/counter.effect';
-
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {CounterContainerComponent} from './container/counter-container.component';
+import {CounterComponent} from './components/counter/counter.component';
+import {COUNTER_ROUTES} from './counter.routing';
+import {EffectsModule} from '@ngrx/effects';
+import {CounterEffects} from '@api/counter/counter.effect';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
-  declarations: [CounterContainerComponent, CounterComponent],
+  declarations: [
+    CounterContainerComponent,
+    CounterComponent
+  ],
   imports: [
     CommonModule,
-    CounterRoutingModule,
-    EffectsModule.forFeature([CounterEffects])
+    EffectsModule.forFeature([CounterEffects]),
+    RouterModule.forChild(COUNTER_ROUTES)
   ]
 })
-export class CounterModule { }
+class CounterModule {
+}
+
+export {CounterModule};

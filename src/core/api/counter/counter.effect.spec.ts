@@ -7,7 +7,7 @@ import {CounterService} from '@api/counter/counter.service';
 import {Actions} from '@ngrx/effects';
 import {of} from 'rxjs';
 
-fdescribe('CounterEffects', () => {
+describe('CounterEffects', () => {
   let sut: CounterEffects;
   let actionsMock: any;
   let counterServiceMock: any;

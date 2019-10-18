@@ -19,7 +19,6 @@ class CounterEffects {
   @Effect()
   loadCounter$: Observable<Action> = this.actions$.pipe(
     ofType(CounterActions.getCurrentValue),
-    // TODO add type action
     switchMap(() => this.loadCounterHandler())
   );
 

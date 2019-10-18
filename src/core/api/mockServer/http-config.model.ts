@@ -1,4 +1,6 @@
-export interface HttpConfig {
-    url: string;
-    options?: object;
+interface HttpConfig {
+  url: string;
+  options?: object;
 }
+
+export {HttpConfig};

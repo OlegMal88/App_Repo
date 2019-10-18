@@ -1,10 +1,10 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
 const ROUTE_PATHS = {
   counter: 'counter',
 };
 
-const routes: Routes = [
+const ROUTES: Routes = [
   {
     path: '',
     redirectTo: '',
@@ -16,4 +16,4 @@ const routes: Routes = [
   },
 ];
 
-export { routes, ROUTE_PATHS };
+export {ROUTES, ROUTE_PATHS};

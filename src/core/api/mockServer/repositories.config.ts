@@ -1,5 +1,7 @@
-export const repositoryConfig = {
-    counter: {
-        url: '/counter',
-    }
+const repositoryConfig = {
+  counter: {
+    url: '/counter',
+  }
 };
+
+export {repositoryConfig};

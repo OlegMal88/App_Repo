@@ -1,17 +1,14 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CounterContainerComponent } from './container/counter-container.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {CounterContainerComponent} from './container/counter-container.component';
 
-const routes: Routes = [
+const COUNTER_ROUTES: Routes = [
   {
     path: '',
     component: CounterContainerComponent,
   }
 ];
 
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class CounterRoutingModule { }
+export {
+  COUNTER_ROUTES
+};

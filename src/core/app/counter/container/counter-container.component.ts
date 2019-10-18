@@ -4,10 +4,9 @@ import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-counter-container',
-  templateUrl: './counter-container.component.html',
-  styleUrls: ['./counter-container.component.css']
+  templateUrl: './counter-container.component.html'
 })
-export class CounterContainerComponent {
+class CounterContainerComponent {
 
   public counter$: Observable<number> = this.counterContainerService.counter$;
 
@@ -30,3 +29,5 @@ export class CounterContainerComponent {
     this.counterContainerService.getAsyncValue();
   }
 }
+
+export {CounterContainerComponent};
