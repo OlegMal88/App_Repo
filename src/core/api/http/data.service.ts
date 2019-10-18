@@ -12,7 +12,7 @@ export class DataService implements InMemoryDbService {
   createDb() {
     const counter = [
       {
-        counter: 100,
+        value: 100,
         id: 1,
       }
     ];

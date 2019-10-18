@@ -14,7 +14,6 @@ export class AbstractHttpClient {
   constructor(private http: HttpClient) { }
 
   getData<T>(): Observable<T[]> {
-      console.log(`${this.SERVER_URL + this.configUrl.url}`);
       return this.http.get<T[]>(`${this.SERVER_URL + this.configUrl.url}`)
                        .pipe(catchError(this.handleError));
   }
@@ -23,7 +22,7 @@ export class AbstractHttpClient {
   //      return this.httpClient.get(`${this.SERVER_URL + this.configUrl}/${dataId}`);
   // }
 
-  // createPolicy(data: {id: number, amount: number, clientId: number, userId: number, description: string}){
+  // createPolicy(data: {id: number, value: number}){
   //     return this.httpClient.post(`${this.SERVER_URL + this.configUrl}`, post)
   // }
 
@@ -31,8 +30,8 @@ export class AbstractHttpClient {
   //     return this.httpClient.delete(`${this.SERVER_URL + this.configUrl}/${dataId}`)
   // }
 
-  // updatePolicy(policy: {id: number, amount: number, clientId: number, userId: number, description: string}){
-  //     return this.httpClient.put(`${this.SERVER_URL + this.configUrl}/${policy.id}`, post)
+  // updatePolicy(data: {id: number, value: number}){
+  //     return this.httpClient.put(`${this.SERVER_URL + this.configUrl}/${data.id}`, post)
   // }
 
   private handleError(err) {

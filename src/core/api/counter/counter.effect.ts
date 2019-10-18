@@ -20,13 +20,9 @@ export class CounterEffects {
   loadCounter$: Observable<Action> = this.actions$.pipe(
     ofType(Counter.getCurrentValue),
     // TODO add type action
-    mergeMap((actions: any) => this.counterService
-      .getData()
+    mergeMap((action: any) => this.counterService.getData()
       .pipe(
-        map(([counter]: any) => {
-          console.log(counter);
-          return Counter.getCurrentValueSuccess(counter)
-        }),
+        map(([counter]: any) => Counter.getCurrentValueSuccess(counter)),
         catchError(err => of(Counter.getCurrentValueError(err)))
       ))
   );

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CounterContainerService} from './counter-container.service';
 import {Observable} from 'rxjs';
 
@@ -12,8 +12,6 @@ export class CounterContainerComponent {
   public counter$: Observable<number> = this.counterContainerService.counter$;
 
   constructor(private counterContainerService: CounterContainerService) {
-
-    console.log(this.counter$)
   }
 
   increment() {
