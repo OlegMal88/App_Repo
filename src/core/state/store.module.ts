@@ -3,10 +3,8 @@ import {NgModule} from '@angular/core';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../../environments/environment';
 import {StoreModule} from '@ngrx/store';
-import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import * as Root from '@state/root';
 import {CounterStoreModule} from '@state/counter';
-import {CustomSerializer} from './router-utils'
 
 @NgModule({
   declarations: [],
@@ -15,9 +13,6 @@ import {CustomSerializer} from './router-utils'
     CounterStoreModule,
     StoreModule.forRoot({
       root: Root.reducer
-    }),
-    StoreRouterConnectingModule.forRoot({
-      serializer: CustomSerializer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

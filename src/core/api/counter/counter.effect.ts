@@ -4,11 +4,8 @@ import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import * as CounterActions from '@state/counter/actions';
 
-import {catchError, map, switchMap, filter} from 'rxjs/operators';
+import {catchError, map, switchMap} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
-import {ROUTE_PATHS } from 'src/core/app.routing';
-import {RouterData, routerNavigatedState} from '@state/router-utils';
-
 
 @Injectable()
 class CounterEffects {
@@ -32,18 +29,6 @@ class CounterEffects {
         map(([counter]: any) => CounterActions.getCurrentValueSuccess(counter)),
         catchError(err => of(CounterActions.getCurrentValueError(err))));
   }
-
-  @Effect()
-  public dispatchStartCounterOnNavigationEnd$ = this.actions$.pipe(
-    routerNavigatedState,
-    filter((data: RouterData) => data.activatedUrl.includes(ROUTE_PATHS.counter)),
-    map((data: RouterData) => 
-      CounterActions.getCurrentValueSuccess({
-        id: null,
-        value: data.activatedParams.value || 0
-      })
-    )
-  );
 }
 
 export {CounterEffects};

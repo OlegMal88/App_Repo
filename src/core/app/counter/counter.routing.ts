@@ -6,10 +6,6 @@ const COUNTER_ROUTES: Routes = [
   {
     path: '',
     component: CounterContainerComponent,
-  },
-  {
-    path: ':value',
-    component: CounterContainerComponent,
   }
 ];
 
