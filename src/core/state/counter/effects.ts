@@ -1,4 +1,4 @@
-import {CounterService} from './counter.service';
+import {CounterService} from '@api/counter/counter.service';
 import {Action} from '@ngrx/store';
 import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';

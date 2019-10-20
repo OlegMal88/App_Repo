@@ -1,4 +1,4 @@
-import {CounterEffects} from '@api/counter/counter.effect';
+import {CounterEffects} from '@state/counter/effects';
 import * as CounterActions from '@state/counter/actions';
 import {TestScheduler} from 'rxjs/testing';
 import {TestBed} from '@angular/core/testing';
