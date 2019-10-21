@@ -6,6 +6,7 @@ import * as CounterActions from '@state/counter/actions';
 
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import * as models from '@api/models/';
 
 @Injectable()
 class CounterEffects {
@@ -19,7 +20,10 @@ class CounterEffects {
 
   private loadCounterHandler(): Observable<Action> {
     return this.counterService.getData().pipe(
-      map(([counter]: any) => CounterActions.getCurrentValueSuccess(counter)),
+      map((counters: models.CounterModel[]) => {
+        const [counter] = counters;
+        return CounterActions.getCurrentValueSuccess(counter);
+      }),
       catchError(err => of(CounterActions.getCurrentValueError(err)))
     );
   }
