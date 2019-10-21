@@ -4,17 +4,16 @@ import * as Counter from '@state/counter';
 import {Observable} from 'rxjs';
 import {distinctUntilChanged} from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 class CounterContainerService {
   public counter$: Observable<number> = this.store.pipe(
     select(Counter.selectCounter),
     distinctUntilChanged()
   );
 
-  constructor(private store: Store<Counter.State>) {
-  }
+  constructor(
+    private store: Store<Counter.State>
+  ) {}
 
   increment() {
     this.store.dispatch(Counter.increment());
