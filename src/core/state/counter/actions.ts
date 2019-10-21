@@ -10,6 +10,6 @@ const getCurrentValueSuccess = createAction(
   '[Counter Component] Get Current Value Success',
   props<models.CounterModel>()
 );
-const getCurrentValueError = createAction('[Counter Component] Get Current Value Error', (err: any) => err);
+const getCurrentValueError = createAction('[Counter Component] Get Current Value Error', props<{ error: any }>());
 
 export { increment, decrement, reset, getCurrentValue, getCurrentValueSuccess, getCurrentValueError };
