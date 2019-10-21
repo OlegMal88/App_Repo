@@ -4,9 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpConfig } from '@api/mockServer/http-config.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 class BaseHttp {
   SERVER_URL = 'http://localhost:8080/api';
   configUrl: HttpConfig;
