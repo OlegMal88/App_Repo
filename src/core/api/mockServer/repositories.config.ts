@@ -1,7 +1,7 @@
 const repositoryConfig = {
   counter: {
     url: '/counter',
-  }
+  },
 };
 
-export {repositoryConfig};
+export { repositoryConfig };
