@@ -1,9 +1,16 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class CounterComponent {
   @Input() counter;
