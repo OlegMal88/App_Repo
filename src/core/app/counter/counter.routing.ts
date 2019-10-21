@@ -1,14 +1,11 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {CounterContainerComponent} from './container/counter-container.component';
+import { Routes } from '@angular/router';
+import { CounterContainerComponent } from './container/counter-container.component';
 
 const COUNTER_ROUTES: Routes = [
   {
     path: '',
     component: CounterContainerComponent,
-  }
+  },
 ];
 
-export {
-  COUNTER_ROUTES
-};
+export { COUNTER_ROUTES };

@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -6,12 +6,12 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./counter.component.css'],
 })
 class CounterComponent {
-  @Input() counter;
+  @Input() counter: number;
 
   @Output() increment: EventEmitter<void> = new EventEmitter<void>();
   @Output() decrement: EventEmitter<void> = new EventEmitter<void>();
   @Output() asyncValue: EventEmitter<void> = new EventEmitter<void>();
-  @Output() reset: EventEmitter<void> = new EventEmitter<void>();
+  @Output() resetCounter: EventEmitter<void> = new EventEmitter<void>();
 
   incrementHandler() {
     this.increment.emit();
@@ -26,7 +26,7 @@ class CounterComponent {
   }
 
   resetHandler() {
-    this.reset.emit();
+    this.resetCounter.emit();
   }
 
   getAsyncValue() {
@@ -34,4 +34,4 @@ class CounterComponent {
   }
 }
 
-export {CounterComponent};
+export { CounterComponent };

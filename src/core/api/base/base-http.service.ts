@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpConfig } from '@api/mockServer/http-config.model';
+import { basicURL } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 class BaseHttpService {
-  SERVER_URL = 'http://localhost:8080/api';
+  SERVER_URL = basicURL.local;
   configUrl: HttpConfig = { url: '/counter' };
 
   constructor(private http: HttpClient) {}

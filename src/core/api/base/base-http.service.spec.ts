@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { BaseHttpService } from './base-http.service';
 import { TestScheduler } from 'rxjs/testing';
 import { HttpClient } from '@angular/common/http';
-import { of, Observable, throwError } from 'rxjs';
+import { of } from 'rxjs';
 
 describe('BaseHttpService', () => {
   let sut: BaseHttpService;
