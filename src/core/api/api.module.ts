@@ -8,4 +8,7 @@ import {CounterService} from './counter/counter.service';
     CounterService,
   ]
 })
-export class ApiModule {}
+class ApiModule {
+}
+
+export {ApiModule};

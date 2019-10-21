@@ -3,12 +3,11 @@ import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
-import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {DataService} from '@api/mockServer/data.service';
-import {ApiModule} from '@api/api.module';
 import {RootStoreModule} from '@state/store.module';
 import {ROUTES} from './app.routing';
 import {AppComponent} from './app.component';
+import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {DataService} from '@api/mockServer/data.service';
 
 @NgModule({
   declarations: [
@@ -18,10 +17,9 @@ import {AppComponent} from './app.component';
     BrowserModule,
     RootStoreModule,
     RouterModule.forRoot(ROUTES, {useHash: true}),
-    InMemoryWebApiModule.forRoot(DataService),
     EffectsModule.forRoot([]),
     HttpClientModule,
-    ApiModule,
+    InMemoryWebApiModule.forRoot(DataService), // Mock Server, remove after start of actual development
   ],
   providers: [],
   bootstrap: [AppComponent]
