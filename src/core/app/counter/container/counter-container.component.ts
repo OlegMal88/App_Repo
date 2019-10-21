@@ -21,7 +21,7 @@ class CounterContainerComponent {
     this.counterContainerService.decrement();
   }
 
-  reset() {
+  resetCounter() {
     this.counterContainerService.reset();
   }
 

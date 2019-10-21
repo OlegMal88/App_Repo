@@ -18,7 +18,7 @@ class CounterComponent {
   @Output() increment: EventEmitter<void> = new EventEmitter<void>();
   @Output() decrement: EventEmitter<void> = new EventEmitter<void>();
   @Output() asyncValue: EventEmitter<void> = new EventEmitter<void>();
-  @Output() reset: EventEmitter<void> = new EventEmitter<void>();
+  @Output() resetCounter: EventEmitter<void> = new EventEmitter<void>();
 
   incrementHandler() {
     this.increment.emit();
@@ -33,7 +33,7 @@ class CounterComponent {
   }
 
   resetHandler() {
-    this.reset.emit();
+    this.resetCounter.emit();
   }
 
   getAsyncValue() {

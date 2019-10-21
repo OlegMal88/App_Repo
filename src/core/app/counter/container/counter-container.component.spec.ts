@@ -68,12 +68,12 @@ describe('CounterContainerComponent', () => {
         .toHaveBeenCalled();
     });
 
-    it('should react on emitted reset', () => {
-      spyOn(component, 'reset');
+    it('should react on emitted resetCounter', () => {
+      spyOn(component, 'resetCounter');
 
-      counterMockComponent.reset.emit();
+      counterMockComponent.resetCounter.emit();
 
-      expect(component.reset)
+      expect(component.resetCounter)
         .toHaveBeenCalled();
     });
 
@@ -115,9 +115,9 @@ describe('CounterContainerComponent', () => {
       });
     });
 
-    describe('reset', () => {
-      it('should execute reset service method', () => {
-        component.reset();
+    describe('resetCounter', () => {
+      it('should execute resetCounter service method', () => {
+        component.resetCounter();
 
         expect(counterContainerServiceMock.reset)
           .toHaveBeenCalled();
