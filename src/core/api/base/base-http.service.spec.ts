@@ -1,13 +1,11 @@
 import {TestBed} from '@angular/core/testing';
 import {BaseHttpService} from './base-http.service';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {CounterModel} from '@api/models/counter.model';
 import {TestScheduler} from 'rxjs/testing';
 import {HttpClient} from '@angular/common/http';
 import {of} from 'rxjs';
 
-fdescribe('BaseHttpService', () => {
-  let service: BaseHttpService;
+describe('BaseHttpService', () => {
+  let sut: BaseHttpService;
   let httpMock: any;
   let scheduler: TestScheduler;
 
@@ -39,35 +37,38 @@ fdescribe('BaseHttpService', () => {
         BaseHttpService],
     });
 
-    service = TestBed.get(BaseHttpService);
+    sut = TestBed.get(BaseHttpService);
   });
 
   describe('getData', () => {
-    it('should check http,get method call', () => {
-      spyOn((service as any), 'handleError')
+    let expectations: any;
+
+    beforeEach(() => {
+      spyOn((sut as any), 'handleError')
         .and.returnValue(of(COUNTER_ERROR_RESPONSE_MOCK));
 
-      scheduler.expectObservable(service.getData())
+      expectations = scheduler.expectObservable(sut.getData());
+    });
+
+    it('should check http,get method call', () => {
+      expectations
         .toBe('-(a|)', {
           a: COUNTER_ERROR_RESPONSE_MOCK
         });
 
       scheduler.flush();
+    });
 
-      expect((service as any).handleError)
+    it('should use handleError for catching errors', () => {
+      scheduler.flush();
+
+      expect((sut as any).handleError)
         .toHaveBeenCalledWith(COUNTER_ERROR_RESPONSE_MOCK);
     });
-    xit('should return an Observable<Counter[]>', () => {
-      const counters: any[] = [new CounterModel(1, 100)];
 
-      service.getData().subscribe(countersData => {
-        expect(countersData.length).toBe(1);
-        expect(countersData).toEqual(counters);
-      });
-
-      const req = httpMock.expectOne(`${service.SERVER_URL}/counter`);
-      expect(req.request.method).toBe('GET');
-      req.flush(counters);
+    it('should call http get method', () => {
+      expect(httpMock.get)
+        .toHaveBeenCalledWith(`${sut.SERVER_URL}/counter`);
     });
   });
 });
