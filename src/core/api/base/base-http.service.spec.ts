@@ -4,7 +4,7 @@ import { TestScheduler } from 'rxjs/testing';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
 
-fdescribe('BaseHttpService', () => {
+describe('BaseHttpService', () => {
   let sut: BaseHttpService;
   let httpMock: any;
   let scheduler: TestScheduler;
