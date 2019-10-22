@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {select, Store} from '@ngrx/store';
+import { Injectable } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import * as Counter from '@state/counter';
-import {Observable} from 'rxjs';
-import {distinctUntilChanged} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable()
 class CounterContainerService {
@@ -11,9 +11,7 @@ class CounterContainerService {
     distinctUntilChanged()
   );
 
-  constructor(
-    private store: Store<Counter.State>
-  ) {}
+  constructor(private store: Store<Counter.State>) {}
 
   increment() {
     this.store.dispatch(Counter.increment());
@@ -23,7 +21,7 @@ class CounterContainerService {
     this.store.dispatch(Counter.decrement());
   }
 
-  reset() {
+  resetCounter() {
     this.store.dispatch(Counter.reset());
   }
 
@@ -32,4 +30,4 @@ class CounterContainerService {
   }
 }
 
-export {CounterContainerService};
+export { CounterContainerService };

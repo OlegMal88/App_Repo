@@ -1,21 +1,21 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-import {HttpConfig} from '@api/mockServer/http-config.model';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { HttpConfig } from '@api/mockServer/http-config.model';
+import { basicURL } from 'src/environments/environment';
 
-@Injectable()
-class BaseHttp {
-  SERVER_URL = 'http://localhost:8080/api';
-  configUrl: HttpConfig;
+@Injectable({
+  providedIn: 'root',
+})
+class BaseHttpService {
+  SERVER_URL = basicURL.local;
+  configUrl: HttpConfig = { url: '/counter' };
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getData<T>(): Observable<T[]> {
-    return this.http
-      .get<T[]>(`${this.SERVER_URL + this.configUrl.url}`)
-      .pipe(catchError(this.handleError));
+    return this.http.get<T[]>(`${this.SERVER_URL + this.configUrl.url}`).pipe(catchError(this.handleError));
   }
 
   private handleError(err) {
@@ -30,4 +30,4 @@ class BaseHttp {
   }
 }
 
-export {BaseHttp};
+export { BaseHttpService };

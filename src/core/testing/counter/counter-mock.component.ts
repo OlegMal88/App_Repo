@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
-  template: '<div></div>'
+  template: '<div></div>',
 })
 class CounterMockComponent {
   @Input() counter;
@@ -13,4 +13,4 @@ class CounterMockComponent {
   @Output() resetCounter: EventEmitter<void> = new EventEmitter<void>();
 }
 
-export {CounterMockComponent};
+export { CounterMockComponent };
