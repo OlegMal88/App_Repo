@@ -15,7 +15,7 @@ class BaseHttpService {
   constructor(private http: HttpClient) {}
 
   getData<T>(): Observable<T[]> {
-    return this.http.get<T[]>(`${this.SERVER_URL + this.configUrl.url}`).pipe(catchError(err => this.handleError(err)));
+    return this.http.get<T[]>(`${this.SERVER_URL + this.configUrl.url}`).pipe(catchError(this.handleError));
   }
 
   private handleError(err) {

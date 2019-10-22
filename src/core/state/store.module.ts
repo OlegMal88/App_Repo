@@ -5,6 +5,7 @@ import {environment} from '../../environments/environment';
 import {StoreModule} from '@ngrx/store';
 import * as Root from '@state/root';
 import {CounterStoreModule} from '@state/counter';
+import {ApiModule} from '@api/api.module';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,8 @@ import {CounterStoreModule} from '@state/counter';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    ApiModule
   ]
 })
 class RootStoreModule {
