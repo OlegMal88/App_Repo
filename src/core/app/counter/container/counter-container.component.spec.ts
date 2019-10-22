@@ -1,11 +1,11 @@
-import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
-import {CounterContainerComponent} from './counter-container.component';
-import {MocksModule} from '@testing/mock.module';
-import {CounterMockComponent} from '@testing/counter/counter-mock.component';
-import {By} from '@angular/platform-browser';
-import {CounterContainerService} from './counter-container.service';
-import {of} from 'rxjs';
+import { CounterContainerComponent } from './counter-container.component';
+import { MocksModule } from '@testing/mock.module';
+import { CounterMockComponent } from '@testing/counter/counter-mock.component';
+import { By } from '@angular/platform-browser';
+import { CounterContainerService } from './counter-container.service';
+import { of } from 'rxjs';
 
 describe('CounterContainerComponent', () => {
   let component: CounterContainerComponent;
@@ -14,37 +14,31 @@ describe('CounterContainerComponent', () => {
   let counterContainerServiceMock: any;
 
   beforeEach(async(() => {
-
     counterContainerServiceMock = {
       increment: jasmine.createSpy('increment'),
       decrement: jasmine.createSpy('decrement'),
-      reset: jasmine.createSpy('reset'),
+      resetCounter: jasmine.createSpy('resetCounter'),
       getAsyncValue: jasmine.createSpy('getAsyncValue'),
-      counter$: of('counter')
+      counter$: of('counter'),
     };
 
     TestBed.configureTestingModule({
       imports: [MocksModule],
-      declarations: [
-        CounterContainerComponent
-      ],
+      declarations: [CounterContainerComponent],
       providers: [
         {
           provide: CounterContainerService,
-          useFactory: () => counterContainerServiceMock
-        }
-      ]
-    })
-      .compileComponents();
+          useFactory: () => counterContainerServiceMock,
+        },
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CounterContainerComponent);
     component = fixture.componentInstance;
 
-    counterMockComponent = fixture.debugElement
-      .query(By.directive(CounterMockComponent))
-      .componentInstance;
+    counterMockComponent = fixture.debugElement.query(By.directive(CounterMockComponent)).componentInstance;
 
     fixture.detectChanges();
   });
@@ -55,8 +49,7 @@ describe('CounterContainerComponent', () => {
 
       counterMockComponent.increment.emit();
 
-      expect(component.increment)
-        .toHaveBeenCalled();
+      expect(component.increment).toHaveBeenCalled();
     });
 
     it('should react on emitted decrement', () => {
@@ -64,8 +57,7 @@ describe('CounterContainerComponent', () => {
 
       counterMockComponent.decrement.emit();
 
-      expect(component.decrement)
-        .toHaveBeenCalled();
+      expect(component.decrement).toHaveBeenCalled();
     });
 
     it('should react on emitted resetCounter', () => {
@@ -73,8 +65,7 @@ describe('CounterContainerComponent', () => {
 
       counterMockComponent.resetCounter.emit();
 
-      expect(component.resetCounter)
-        .toHaveBeenCalled();
+      expect(component.resetCounter).toHaveBeenCalled();
     });
 
     it('should react on emitted asyncValue', () => {
@@ -82,8 +73,7 @@ describe('CounterContainerComponent', () => {
 
       counterMockComponent.asyncValue.emit();
 
-      expect(component.getAsyncValue)
-        .toHaveBeenCalled();
+      expect(component.getAsyncValue).toHaveBeenCalled();
     });
 
     it('should set counter input', fakeAsync(() => {
@@ -91,8 +81,7 @@ describe('CounterContainerComponent', () => {
 
       tick();
 
-      expect(counterMockComponent.counter)
-        .toBe('counter');
+      expect(counterMockComponent.counter).toBe('counter');
     }));
   });
 
@@ -101,8 +90,7 @@ describe('CounterContainerComponent', () => {
       it('should execute increment service method', () => {
         component.increment();
 
-        expect(counterContainerServiceMock.increment)
-          .toHaveBeenCalled();
+        expect(counterContainerServiceMock.increment).toHaveBeenCalled();
       });
     });
 
@@ -110,8 +98,7 @@ describe('CounterContainerComponent', () => {
       it('should execute decrement service method', () => {
         component.decrement();
 
-        expect(counterContainerServiceMock.decrement)
-          .toHaveBeenCalled();
+        expect(counterContainerServiceMock.decrement).toHaveBeenCalled();
       });
     });
 
@@ -119,8 +106,7 @@ describe('CounterContainerComponent', () => {
       it('should execute resetCounter service method', () => {
         component.resetCounter();
 
-        expect(counterContainerServiceMock.reset)
-          .toHaveBeenCalled();
+        expect(counterContainerServiceMock.resetCounter).toHaveBeenCalled();
       });
     });
 
@@ -128,8 +114,7 @@ describe('CounterContainerComponent', () => {
       it('should execute getAsyncValue service method', () => {
         component.getAsyncValue();
 
-        expect(counterContainerServiceMock.getAsyncValue)
-          .toHaveBeenCalled();
+        expect(counterContainerServiceMock.getAsyncValue).toHaveBeenCalled();
       });
     });
   });

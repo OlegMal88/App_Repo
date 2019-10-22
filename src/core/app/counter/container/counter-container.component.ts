@@ -1,17 +1,15 @@
-import {Component} from '@angular/core';
-import {CounterContainerService} from './counter-container.service';
-import {Observable} from 'rxjs';
+import { Component } from '@angular/core';
+import { CounterContainerService } from './counter-container.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-counter-container',
-  templateUrl: './counter-container.component.html'
+  templateUrl: './counter-container.component.html',
 })
 class CounterContainerComponent {
-
   public counter$: Observable<number> = this.counterContainerService.counter$;
 
-  constructor(private counterContainerService: CounterContainerService) {
-  }
+  constructor(private counterContainerService: CounterContainerService) {}
 
   increment() {
     this.counterContainerService.increment();
@@ -22,7 +20,7 @@ class CounterContainerComponent {
   }
 
   resetCounter() {
-    this.counterContainerService.reset();
+    this.counterContainerService.resetCounter();
   }
 
   getAsyncValue() {
@@ -30,4 +28,4 @@ class CounterContainerComponent {
   }
 }
 
-export {CounterContainerComponent};
+export { CounterContainerComponent };
