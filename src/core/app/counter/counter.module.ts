@@ -1,25 +1,22 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
-import {CounterContainerComponent} from './container/counter-container.component';
-import {CounterComponent} from './components/counter/counter.component';
-import {COUNTER_ROUTES} from './counter.routing';
-import {CounterContainerService} from './container/counter-container.service';
+import { ListModule, ListService, BorderModule } from '@company/shared-lib';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { CounterContainerComponent } from './container/counter-container.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { COUNTER_ROUTES } from './counter.routing';
+import { CounterContainerService } from './container/counter-container.service';
 
 @NgModule({
-  declarations: [
-    CounterContainerComponent,
-    CounterComponent
-  ],
+  declarations: [CounterContainerComponent, CounterComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(COUNTER_ROUTES)
+    ListModule,
+    BorderModule,
+    RouterModule.forChild(COUNTER_ROUTES),
   ],
-  providers: [
-    CounterContainerService
-  ]
+  providers: [CounterContainerService, ListService],
 })
-class CounterModule {
-}
+class CounterModule {}
 
-export {CounterModule};
+export { CounterModule };

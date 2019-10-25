@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 class CounterContainerComponent {
   public counter$: Observable<number> = this.counterContainerService.counter$;
+  list = ['item 1', 'item 2', 'item 3'];
 
   constructor(private counterContainerService: CounterContainerService) {}
 

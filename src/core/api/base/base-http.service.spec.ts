@@ -19,7 +19,9 @@ describe('BaseHttpService', () => {
     httpMock = {
       get: jasmine
         .createSpy('get')
-        .and.returnValue(scheduler.createHotObservable('-#', {}, COUNTER_ERROR_RESPONSE_MOCK)),
+        .and.returnValue(
+          scheduler.createHotObservable('-#', {}, COUNTER_ERROR_RESPONSE_MOCK)
+        ),
     };
 
     TestBed.configureTestingModule({
@@ -39,7 +41,9 @@ describe('BaseHttpService', () => {
     let expectations: any;
 
     beforeEach(() => {
-      spyOn(sut as any, 'handleError').and.returnValue(of(COUNTER_ERROR_RESPONSE_MOCK));
+      spyOn(sut as any, 'handleError').and.returnValue(
+        of(COUNTER_ERROR_RESPONSE_MOCK)
+      );
 
       expectations = scheduler.expectObservable(sut.getData());
     });
@@ -49,13 +53,15 @@ describe('BaseHttpService', () => {
         a: COUNTER_ERROR_RESPONSE_MOCK,
       });
 
-      scheduler.flush();
+      scheduler.flush().test();
     });
 
     it('should use handleError for catching errors', () => {
       scheduler.flush();
 
-      expect((sut as any).handleError).toHaveBeenCalledWith(COUNTER_ERROR_RESPONSE_MOCK);
+      expect((sut as any).handleError).toHaveBeenCalledWith(
+        COUNTER_ERROR_RESPONSE_MOCK
+      );
     });
 
     it('should call http get method', () => {
@@ -68,12 +74,16 @@ describe('BaseHttpService', () => {
     const mockErrorResponse = {
       status: 404,
       statusText: 'Bad Request',
-      body: { error: `Collection 'error-link' not found` },
+      body: {
+        error: `Collection 'error-link' not found`,
+      },
     };
 
     it('should return Error mess', () => {
       errorMessage = `Backend returned code ${mockErrorResponse.status}: ${mockErrorResponse.body.error}`;
-      scheduler.expectObservable((sut as any).handleError(mockErrorResponse)).toBe('#', null, errorMessage);
+      scheduler
+        .expectObservable((sut as any).handleError(mockErrorResponse))
+        .toBe('#', null, errorMessage);
 
       scheduler.flush();
     });
