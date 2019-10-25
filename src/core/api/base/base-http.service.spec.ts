@@ -53,7 +53,7 @@ describe('BaseHttpService', () => {
         a: COUNTER_ERROR_RESPONSE_MOCK,
       });
 
-      scheduler.flush().test();
+      scheduler.flush();
     });
 
     it('should use handleError for catching errors', () => {
@@ -74,9 +74,7 @@ describe('BaseHttpService', () => {
     const mockErrorResponse = {
       status: 404,
       statusText: 'Bad Request',
-      body: {
-        error: `Collection 'error-link' not found`,
-      },
+      body: { error: `Collection 'error-link' not found` },
     };
 
     it('should return Error mess', () => {
