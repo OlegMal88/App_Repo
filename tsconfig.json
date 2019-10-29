@@ -3,13 +3,18 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@state/*": ["src/core/state/*"],
-      "@state": ["src/core/state/index"],
-      "@features/*": ["src/core/features/*"],
-      "@features": ["src/core/features/index"],
-      "@api/*": ["src/core/api/*"],
-      "@api": ["src/core/api/index"],
-      "@testing/*": ["src/core/testing/*"]
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@features/*": [
+        "src/app/features/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+      "@testing/*": [
+        "src/app/testing/*"
+      ]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
