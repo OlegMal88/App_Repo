@@ -3,7 +3,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 @Injectable()
 class DataService implements InMemoryDbService {
-  createDb(): object {
+  createDb() {
     const counter = [
       {
         value: 100,

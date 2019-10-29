@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-const ROUTE_PATHS = {
+const ROUTE_PATHS: { [key: string]: string } = {
   dashboard: 'dashboard',
 };
 

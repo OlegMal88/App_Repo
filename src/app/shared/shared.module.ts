@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { DataService } from '../services/mockServer/data.service';
+import { DataService } from '@services/mockServer/data.service';
 
 @NgModule({
   providers: [

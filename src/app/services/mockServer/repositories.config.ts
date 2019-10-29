@@ -1,4 +1,4 @@
-const repositoryConfig: object = {
+const repositoryConfig = {
   counter: {
     url: '/counter',
   },

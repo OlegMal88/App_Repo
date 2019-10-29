@@ -1,6 +1,6 @@
 interface HttpConfig {
   url: string;
-  options?: any;
+  options?: object;
 }
 
 export { HttpConfig };

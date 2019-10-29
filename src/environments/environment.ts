@@ -1,8 +1,8 @@
-const environment = {
+const environment: { [key: string]: any } = {
   production: false,
 };
 
-const basicURL = {
+const basicURL: { [key: string]: any } = {
   local: 'http://localhost:8080/api',
 };
 

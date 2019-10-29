@@ -21,6 +21,7 @@ class BaseHttpService {
 
   private handleError(err) {
     let errorMessage: string;
+
     if (err.error instanceof ErrorEvent) {
       errorMessage = `An error occurred: ${err.error.message}`;
     } else {
