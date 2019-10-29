@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
 
 @Component({
-  selector: 'dashboard-view',
+  selector: 'app-dashboard',
   templateUrl: './dashboard-view.component.html',
   styleUrls: ['./dashboard-view.component.css'],
 })

@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {DataService} from '../services/mockServer/data.service';
+import { NgModule } from '@angular/core';
+import { DataService } from '../services/mockServer/data.service';
 
 @NgModule({
   providers: [
@@ -9,4 +9,4 @@ import {DataService} from '../services/mockServer/data.service';
 class SharedModule {
 }
 
-export {SharedModule};
+export { SharedModule };

@@ -1,4 +1,4 @@
-import {Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 
 const ROUTE_PATHS = {
   dashboard: 'dashboard',
@@ -16,4 +16,4 @@ const ROUTES: Routes = [
   },
 ];
 
-export {ROUTES, ROUTE_PATHS};
+export { ROUTES, ROUTE_PATHS };

@@ -18,6 +18,7 @@ import { DASHBOARD_ROUTES } from './dashboard.routing';
   providers: [DashboardService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-class DashboardModule {}
+class DashboardModule {
+}
 
 export { DashboardModule };

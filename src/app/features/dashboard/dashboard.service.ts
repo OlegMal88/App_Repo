@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 class DashboardService {
-  processModel(model: any) {
+  processModel(model: object) {
     return {
       ...model,
       newField: 100

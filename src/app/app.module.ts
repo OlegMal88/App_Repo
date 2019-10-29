@@ -15,7 +15,8 @@ import { DataService } from 'src/app/services/mockServer/data.service';
     BrowserModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(DataService), // Mock Server, remove after start of actual development
+    // Mock Server, remove after start of actual development
+    InMemoryWebApiModule.forRoot(DataService),
   ],
   providers: [],
   bootstrap: [AppComponent]

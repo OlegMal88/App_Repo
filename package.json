@@ -21,7 +21,6 @@
     "@angular/platform-browser": "~8.2.9",
     "@angular/platform-browser-dynamic": "~8.2.9",
     "@angular/router": "~8.2.9",
-    "@company/shared-lib": "^0.0.9",
     "@ngrx/effects": "^8.4.0",
     "@ngrx/store": "^8.4.0",
     "@ngrx/store-devtools": "^8.4.0",
@@ -52,6 +51,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
+    "tslint-config-airbnb-base": "^0.3.0",
     "typescript": "~3.5.3"
   }
 }

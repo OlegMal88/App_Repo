@@ -10,10 +10,13 @@ class BaseHttpService {
   SERVER_URL = basicURL.local;
   configUrl: HttpConfig = { url: '/counter' };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getData<T>(): Observable<T[]> {
-    return this.http.get<T[]>(`${this.SERVER_URL + this.configUrl.url}`).pipe(catchError(this.handleError));
+    return this.http
+      .get<T[]>(`${this.SERVER_URL + this.configUrl.url}`)
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(err) {
