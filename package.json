@@ -5,9 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "test:coverage": "ng test --codeCoverage",
-    "test:live": "ng test --watch --codeCoverage",
+    "test:prod": "ng test --watch=false --codeCoverage --browsers=ChromeHeadless",
+    "test": "ng test --codeCoverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -51,7 +50,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "tslint-config-airbnb-base": "^0.3.0",
     "typescript": "~3.5.3"
   }
 }
