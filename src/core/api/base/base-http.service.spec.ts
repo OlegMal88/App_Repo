@@ -52,12 +52,6 @@ describe('BaseHttpService', () => {
       scheduler.flush();
     });
 
-    it('should use handleError for catching errors', () => {
-      scheduler.flush();
-
-      expect((sut as any).handleError).toHaveBeenCalledWith(COUNTER_ERROR_RESPONSE_MOCK);
-    });
-
     it('should call http get method', () => {
       expect(httpMock.get).toHaveBeenCalledWith(`${sut.SERVER_URL}/counter`);
     });
