@@ -5,7 +5,7 @@ const DASHBOARD_ROUTES: Routes = [
   {
     path: '',
     component: DashboardViewComponent,
-  }
+  },
 ];
 
 export { DASHBOARD_ROUTES };

@@ -10,8 +10,7 @@ class DashboardViewComponent {
   @Input() title = 'Dashboard';
   list = ['list 1', 'list 2', 'list 3'];
 
-  constructor(private dashboardService: DashboardService) {
-  }
+  constructor(private dashboardService: DashboardService) {}
 }
 
 export { DashboardViewComponent };

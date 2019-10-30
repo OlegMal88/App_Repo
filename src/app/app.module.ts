@@ -9,7 +9,7 @@ import { DataService } from 'src/app/services/mockServer/data.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

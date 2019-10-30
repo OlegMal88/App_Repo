@@ -1,0 +1,18 @@
+.date {
+  text-align: center;
+
+  &-wrapper {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 15px auto;
+  }
+
+  &-icon {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: 15px auto;
+    width: 50px;
+    height: 50px;
+  }
+}

@@ -1,0 +1,11 @@
+.btn {
+  &-primary {
+    width: 100%;
+    background: $c-primary;
+    color: white;
+    max-width: 400px;
+  }
+  &:hover {
+    background: $c-hover-primary;
+  }
+}
