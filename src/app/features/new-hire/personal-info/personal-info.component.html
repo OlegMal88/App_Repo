@@ -1,0 +1,166 @@
+<div class="content personal-info">
+  <h1 class="title">
+    Lorem ipsum dolor sit amet
+    <span>consectetur adipisicing elit.</span>
+  </h1>
+
+  <form
+    [formGroup]="personalInfoForm"
+    class="form-group"
+    (submit)="save()"
+  >
+    <div class="form-group">
+      <label for="firstName">Last Name</label>
+      <input
+        formControlName="firstName"
+        class="form-control"
+        id="firstName"
+        [ngClass]="{ 'error-input': isInvalidInput('firstName') }"
+      />
+      <app-error-messages
+        [control]="personalInfoForm.get('firstName')"
+      ></app-error-messages>
+    </div>
+
+    <div class="form-group">
+      <label for="middleInitial">Middle initial</label>
+      <input
+        formControlName="middleInitial"
+        class="form-control"
+        id="middleInitial"
+        placeholder="optional"
+      />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input
+        formControlName="lastName"
+        class="form-control"
+        id="lastName"
+        [ngClass]="{ 'error-input': isInvalidInput('lastName') }"
+      />
+      <app-error-messages
+        [control]="personalInfoForm.get('lastName')"
+      ></app-error-messages>
+    </div>
+
+    <div class="form-group">
+      <label for="otherLastName">Other Last Name Used </label
+      ><span class="tooltip-icon" title="Some tooltip text">?</span>
+      <input
+        formControlName="otherLastName"
+        class="form-control"
+        id="otherLastName"
+        placeholder="optional"
+        [ngClass]="{ 'error-input': isInvalidInput('otherLastName') }"
+      />
+      <app-error-messages
+        [control]="personalInfoForm.get('otherLastName')"
+      ></app-error-messages>
+    </div>
+
+    <div class="form-group">
+      <label for="ssn">SSN</label>
+      <input
+        formControlName="ssn"
+        class="form-control"
+        id="ssn"
+        [ngClass]="{ 'error-input': isInvalidInput('ssn') }"
+      />
+      <app-error-messages
+        [control]="personalInfoForm.get('ssn')"
+      ></app-error-messages>
+    </div>
+
+    <div class="form-group">
+      <label for="dateOfBirth">Date of Birth</label>
+      <input
+        formControlName="dateOfBirth"
+        class="form-control"
+        id="dateOfBirth"
+        placeholder="mm/dd/yyyy"
+        [ngClass]="{ 'error-input': isInvalidInput('dateOfBirth') }"
+      />
+      <app-error-messages
+        [control]="personalInfoForm.get('dateOfBirth')"
+      ></app-error-messages>
+    </div>
+
+    <div class="form-group">
+      <label for="streetAdress">Street Adress</label>
+      <input
+        formControlName="streetAdress"
+        class="form-control"
+        id="streetAdress"
+        [ngClass]="{ 'error-input': isInvalidInput('streetAdress') }"
+      />
+      <app-error-messages
+        [control]="personalInfoForm.get('streetAdress')"
+      ></app-error-messages>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input
+        formControlName="city"
+        class="form-control"
+        id="city"
+        [ngClass]="{ 'error-input': isInvalidInput('city') }"
+      />
+      <app-error-messages
+        [control]="personalInfoForm.get('city')"
+      ></app-error-messages>
+    </div>
+
+    <div class="form-group">
+      <label for="state">State</label>
+      <select
+        class="custom-select"
+        id="state"
+        formControlName="state"
+        [ngClass]="{ 'error-input': isInvalidInput('state') }"
+      >
+        <option *ngFor="let state of tempMockStates" value="state">
+          {{ state }}
+        </option>
+      </select>
+      <app-error-messages
+        [control]="personalInfoForm.get('state')"
+      ></app-error-messages>
+    </div>
+
+    <div class="form-group">
+      <label for="zipCode">Zip Code</label>
+      <input
+        formControlName="zipCode"
+        class="form-control"
+        id="zipCode"
+        [ngClass]="{ 'error-input': isInvalidInput('zipCode') }"
+      />
+      <app-error-messages
+        [control]="personalInfoForm.get('zipCode')"
+      ></app-error-messages>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <button
+          class="btn btn-prew"
+          type="submit"
+          [routerLink]="['/']"
+        >
+          Back
+        </button>
+      </div>
+      <div class="col">
+        <button
+          class="btn btn-next"
+          type="submit"
+          [disabled]="!personalInfoForm.valid"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
