@@ -1,0 +1,14 @@
+<ng-container [formGroup]="group">
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-prew" (click)="back()">
+        Back
+      </button>
+    </div>
+    <div class="col">
+      <button class="btn btn-next" type="submit" [disabled]="!group.valid">
+        {{field.label}}
+      </button>
+    </div>
+  </div>
+</ng-container>
