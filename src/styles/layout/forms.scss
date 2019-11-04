@@ -68,24 +68,4 @@
       width: 45%;
     }
   }
-
-  @media (min-width: 992px) {
-    &__control {
-      &.firstName {
-        width: $md-input;
-      }
-
-      &.middleInitial {
-        width: $sm-input;
-      }
-
-      &.state {
-        width: $sm-input;
-      }
-
-      &.zipCode {
-        width: $md-input;
-      }
-    }
-  }
 }
