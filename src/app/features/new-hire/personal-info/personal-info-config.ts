@@ -151,15 +151,15 @@ const personalInfoFormConfig: FieldConfig[] = [
   },
   {
     type: 'button',
-    label: 'Next',
-    colorClass: 'next',
-    disabled: true,
-  },
-  {
-    type: 'button',
     label: 'Prew',
     colorClass: 'prew',
     callbackHandler: (fn: any) => typeof fn === 'function' && fn.bind(this),
+  },
+  {
+    type: 'button',
+    label: 'Next',
+    colorClass: 'next',
+    disabled: true,
   },
 ];
 
