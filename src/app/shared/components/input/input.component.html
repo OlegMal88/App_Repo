@@ -1,10 +1,21 @@
 <div class="form-group" [formGroup]="group">
-  <label for="{{field.name}}">{{field.label}}</label>
-  <input [formControlName]="field.name" class="form-control" id="{{field.name}}" />
-  <!-- TODO: add err calss to field [ngClass]="{ 'error-input': group.get(field.name).hasError(validation[0].name) }" -->
-  <app-error-messages [control]="group.get(field.name)"></app-error-messages>
+  <label for="{{ field.name }}">{{ field.label }}</label>
+  <span
+    *ngIf="field.tooltip"
+    class="tooltip-icon"
+    [title]="field.tooltip"
+    >?</span
+  >
+  <input
+    [formControlName]="field.name"
+    class="form-control"
+    id="{{ field.name }}"
+    [placeholder]="field.placeholder || ''"
+    [ngClass]="{ 'error-input': isError }"
+  />
 
-  <ng-container *ngFor="let validation of field.validations;">
-    <div *ngIf="group.get(field.name).hasError(validation.name) && group.get(field.name).touched">{{validation.message}}</div>
-  </ng-container>
+  <app-error-messages
+    [group]="group"
+    [field]="field"
+  ></app-error-messages>
 </div>

@@ -1,14 +1,16 @@
 <ng-container [formGroup]="group">
-  <div class="row">
-    <div class="col">
-      <button class="btn btn-prew" (click)="back()">
-        Back
-      </button>
-    </div>
-    <div class="col">
-      <button class="btn btn-next" type="submit" [disabled]="!group.valid">
-        {{field.label}}
-      </button>
-    </div>
+  <div class="form-group">
+    <button
+      class="btn btn-{{ field.colorClass }}"
+      type="submit"
+      [disabled]="field.disabled ? !group.valid : null"
+      (click)="
+        field.callbackHandler
+          ? field.callbackHandler(back($event))
+          : null
+      "
+    >
+      {{ field.label }}
+    </button>
   </div>
 </ng-container>

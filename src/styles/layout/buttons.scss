@@ -18,7 +18,7 @@
     &:disabled {
       @include disabled($c-blue);
     }
-    &:hover {
+    &:hover:not(:disabled) {
       @include hover($c-blue);
     }
   }
@@ -28,7 +28,7 @@
     &:disabled {
       @include disabled($c-grey);
     }
-    &:hover {
+    &:hover:not(:disabled) {
       @include hover($c-grey);
     }
   }

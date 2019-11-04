@@ -1,26 +1,28 @@
+import { Validator } from './../../interfaces/field.interface';
 import {
   Component,
   EventEmitter,
   Input,
   OnInit,
   Output
-} from "@angular/core";
+} from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
   Validators,
-} from "@angular/forms";
+} from '@angular/forms';
 import { FieldConfig } from '@shared/interfaces/field.interface';
 
 @Component({
-  selector: "app-dynamic-form",
+  selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
   styles: []
 })
 export class DynamicFormComponent implements OnInit {
   @Input() fields: FieldConfig[] = [];
 
-  @Output() submit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() save: EventEmitter<any> = new EventEmitter<any>();
+  @Output() emitHandler: EventEmitter<any> = new EventEmitter<any>();
 
   form: FormGroup;
 
@@ -38,7 +40,7 @@ export class DynamicFormComponent implements OnInit {
     event.preventDefault();
     event.stopPropagation();
     if (this.form.valid) {
-      this.submit.emit(this.form.value);
+      this.save.emit(this.form.value);
     } else {
       this.validateAllFormFields(this.form);
     }
@@ -46,10 +48,10 @@ export class DynamicFormComponent implements OnInit {
 
   private createControl(): FormGroup {
     const group = this.fb.group({});
-    this.fields.forEach(field => {
-      if (field.type === "button") {
+    this.fields.forEach((field: FieldConfig) => {
+      if (field.type === 'button') {
         return;
-      };
+      }
       const control = this.fb.control(
         field.value,
         this.bindValidations(field.validations || [])
@@ -59,17 +61,17 @@ export class DynamicFormComponent implements OnInit {
     return group;
   }
 
-  private bindValidations(validations: any) {
+  private bindValidations(validations: Validator[]) {
     if (!validations.length) {
       return null;
     }
 
-    const validList = validations.map(valid =>valid.validator);
+    const validList = validations.map(valid => valid.validator);
     return Validators.compose(validList);
   }
 
   private validateAllFormFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
+    Object.keys(formGroup.controls).forEach((field: any) => {
       const control = formGroup.get(field);
       control.markAsTouched({ onlySelf: true });
     });

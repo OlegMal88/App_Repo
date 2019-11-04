@@ -1,4 +1,18 @@
-<form class="dynamic-form form-group" [formGroup]="form" (submit)="onSubmit($event)">
-  <ng-container *ngFor="let field of fields;" dynamicField [field]="field" [group]="form">
-  </ng-container>
+<form
+  class="dynamic-form form-group"
+  [formGroup]="form"
+  (save)="onSubmit($event)"
+>
+  <div
+    *ngFor="let field of fields"
+    class="dynamic-form__control {{ field.name || field.colorClass }}"
+  >
+    <ng-container
+      dynamicField
+      [field]="field"
+      [group]="form"
+      (emitHandler)="emitHandler.emit($event)"
+    >
+    </ng-container>
+  </div>
 </form>

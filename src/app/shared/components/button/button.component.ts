@@ -1,20 +1,18 @@
-import { Component } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { FieldConfig } from '@shared/interfaces/field.interface';
 
 @Component({
-  selector: "app-button",
+  selector: 'app-button',
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {
   field: FieldConfig;
   group: FormGroup;
+  @Output() emitHandler: EventEmitter<any> = new EventEmitter();
 
-  constructor(private location: Location) {
-  }
-
-  back() {
-    this.location.back();
+  back(event) {
+    this.emitHandler.emit(event);
   }
 }

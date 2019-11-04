@@ -1,5 +1,13 @@
-<ng-container *ngIf="errorMessages.length">
-  <div class="text-danger" *ngFor="let errorMessage of errorMessages">
-    {{ errorMessage }}
-  </div>
+<ng-container *ngIf="field">
+  <ng-container *ngFor="let validation of field.validations">
+    <div
+      class="text-danger"
+      *ngIf="
+        group.get(field.name).hasError(validation.name) &&
+        group.get(field.name).touched
+      "
+    >
+      {{ validation.message }}
+    </div>
+  </ng-container>
 </ng-container>
