@@ -1,7 +1,7 @@
 import { FieldConfig } from '@shared/interfaces/field.interface';
 import { Validators } from '@angular/forms';
 
-const MIN_LENTH = 4;
+const ZIP_CODE_MIN_LENGTH = 4;
 
 const personalInfoFormConfig: FieldConfig[] = [
   {
@@ -130,8 +130,8 @@ const personalInfoFormConfig: FieldConfig[] = [
       },
       {
         name: 'minlength',
-        validator: Validators.minLength(MIN_LENTH),
-        message: `Minimum length ${MIN_LENTH}`,
+        validator: Validators.minLength(ZIP_CODE_MIN_LENGTH),
+        message: `Minimum length ${ZIP_CODE_MIN_LENGTH}`,
       },
     ]
   },

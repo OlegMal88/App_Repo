@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Location } from '@angular/common';
 import { FieldConfig } from '@shared/interfaces/field.interface';
 
 @Component({
