@@ -23,13 +23,6 @@ const personalInfoFormConfig: FieldConfig[] = [
     inputType: 'text',
     name: 'middleInitial',
     placeholder: 'optional',
-    validations: [
-      {
-        name: 'required',
-        validator: Validators.required,
-        message: 'Middle Initial Required'
-      },
-    ]
   },
   {
     type: 'input',
@@ -50,13 +43,6 @@ const personalInfoFormConfig: FieldConfig[] = [
     inputType: 'text',
     name: 'otherLastName',
     placeholder: 'optional',
-    validations: [
-      {
-        name: 'required',
-        validator: Validators.required,
-        message: 'Other Last Name Required'
-      },
-    ],
     tooltip: 'Some tooltip text',
   },
   {
@@ -146,7 +132,7 @@ const personalInfoFormConfig: FieldConfig[] = [
         name: 'minlength',
         validator: Validators.minLength(MIN_LENTH),
         message: `Minimum length ${MIN_LENTH}`,
-      }
+      },
     ]
   },
   {

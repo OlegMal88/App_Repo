@@ -1,7 +1,7 @@
 <form
   class="dynamic-form form-group"
   [formGroup]="form"
-  (save)="onSubmit($event)"
+  (submit)="onSubmit($event)"
 >
   <div
     *ngFor="let field of fields"

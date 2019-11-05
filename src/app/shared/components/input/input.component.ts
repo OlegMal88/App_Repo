@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FieldConfig } from '@shared/interfaces/field.interface';
+import { ValidationService } from '@services/validation/validation.service';
 
 @Component({
   selector: 'app-input',
@@ -11,10 +12,9 @@ export class InputComponent {
   group: FormGroup;
 
   get isError(): boolean {
-    if (!this.field.validations) {
-      return;
-    }
-    const control = this.group.get(this.field.name);
-    return control.touched && control.hasError(this.field.validations.find(item => item.name).name);
+    return this.validationService.hasError(this.field, this.group);
+  }
+
+  constructor(private validationService: ValidationService) {
   }
 }

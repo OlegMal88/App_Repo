@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FieldConfig } from '@shared/interfaces/field.interface';
 
 const VALIDATION_REGEXP = {
   // tslint:disable-next-line: max-line-length
@@ -19,9 +21,18 @@ export class ValidationService {
   }
 
   static emailValidator(control) {
-    if (control.value.match(VALIDATION_REGEXP.email)) {
+    if (control.touched && control.value.match(VALIDATION_REGEXP.email)) {
       return null;
     }
     return { invalidEmail: true };
+  }
+
+  public hasError(field: FieldConfig, group: FormGroup): boolean {
+    if (!field.validations) {
+      return;
+    }
+    const control = group.get(field.name);
+    return control.touched && field.validations
+                                    .some(item => control.errors && control.errors[item.name]);
   }
 }
