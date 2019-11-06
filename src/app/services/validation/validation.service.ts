@@ -15,7 +15,6 @@ export class ValidationService {
     const config = {
       required: 'Required',
       invalidEmail: 'Invalid email address',
-      minlength: `Minimum length ${validatorValue.requiredLength}`
     };
     return config[validatorName] || '';
   }
@@ -28,10 +27,10 @@ export class ValidationService {
   }
 
   public hasError(field: FieldConfig, group: FormGroup): boolean {
-    if (!field.validations) {
-      return;
-    }
     const control = group.get(field.name);
+    if (!field.validations || !control) {
+      return false;
+    }
     return control.touched && field.validations
                                     .some(item => control.errors && control.errors[item.name]);
   }

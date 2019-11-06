@@ -61,7 +61,7 @@ export class DynamicFormComponent implements OnInit {
     return group;
   }
 
-  private bindValidations(validations: Validator[]) {
+  private bindValidations(validations: Validator[]): Validators {
     if (!validations.length) {
       return null;
     }

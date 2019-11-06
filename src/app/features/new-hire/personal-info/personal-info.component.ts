@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { DynamicFormComponent } from '@shared/components/dynamic-form/dynamic-form.component';
-import { personalInfoFormConfig } from '@features/new-hire/personal-info/personal-info-config';
+import { PERSONAL_INFO_FORM_CONFIG } from '@features/new-hire/personal-info/personal-info-config';
 import { FieldConfig } from '@shared/interfaces/field.interface';
 
 @Component({
@@ -9,15 +9,11 @@ import { FieldConfig } from '@shared/interfaces/field.interface';
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.scss']
 })
-export class PersonalInfoComponent implements OnInit {
-  @ViewChild(DynamicFormComponent, { static: false }) personalInfoForm: DynamicFormComponent;
-  personalInfoFormConfig: FieldConfig[];
+export class PersonalInfoComponent {
+  @ViewChild(DynamicFormComponent, { static: false }) dynamicFormComponent: DynamicFormComponent;
+  personalInfoFormConfig: FieldConfig[] = PERSONAL_INFO_FORM_CONFIG;
 
   constructor(private location: Location) {
-  }
-
-  ngOnInit() {
-    this.personalInfoFormConfig = personalInfoFormConfig;
   }
 
   save(value) {

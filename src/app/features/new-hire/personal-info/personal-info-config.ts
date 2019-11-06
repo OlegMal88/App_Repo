@@ -3,7 +3,7 @@ import { Validators } from '@angular/forms';
 
 const ZIP_CODE_MIN_LENGTH = 4;
 
-const personalInfoFormConfig: FieldConfig[] = [
+const PERSONAL_INFO_FORM_CONFIG: FieldConfig[] = [
   {
     type: 'input',
     label: 'First Name',
@@ -150,5 +150,5 @@ const personalInfoFormConfig: FieldConfig[] = [
 ];
 
 export {
-  personalInfoFormConfig,
+  PERSONAL_INFO_FORM_CONFIG,
 };
