@@ -1,5 +1,6 @@
 import { FieldConfig } from '@shared/interfaces/field.interface';
 import { Validators } from '@angular/forms';
+import { ValidationService } from '@services/validation/validation.service';
 
 const ZIP_CODE_MIN_LENGTH = 4;
 
@@ -132,6 +133,11 @@ const PERSONAL_INFO_FORM_CONFIG: FieldConfig[] = [
         name: 'minlength',
         validator: Validators.minLength(ZIP_CODE_MIN_LENGTH),
         message: `Minimum length ${ZIP_CODE_MIN_LENGTH}`,
+      },
+      {
+        name: 'pattern',
+        validator: Validators.pattern(/^[A-z0-9]*$/),
+        message: `Only numbers`,
       },
     ]
   },
