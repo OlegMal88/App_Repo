@@ -1,33 +1,27 @@
 import {
     ComponentFactoryResolver,
-    Directive,
     Input,
     OnInit,
     ViewContainerRef,
     Output,
     EventEmitter,
-    OnDestroy
+    OnDestroy,
+    Component
   } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { ButtonComponent } from '@shared/components/button/button.component';
-import { SelectComponent } from '@shared/components/select/select.component';
-import { InputComponent } from '@shared/components/input/input.component';
 import { FieldConfig } from '@shared/interfaces/field.interface';
+import { componentMapper } from './form-components';
 
-const componentMapper = {
-  input: InputComponent,
-  button: ButtonComponent,
-  select: SelectComponent,
-};
 
-@Directive({
-  selector: '[dynamicField]'
+@Component({
+  selector: 'app-dynamic-field',
+  template: '',
 })
-export class DynamicFieldDirective implements OnInit, OnDestroy {
+export class DynamicFieldComponent implements OnInit, OnDestroy {
   @Input() field: FieldConfig;
   @Input() group: FormGroup;
 
@@ -38,26 +32,35 @@ export class DynamicFieldDirective implements OnInit, OnDestroy {
 
   constructor(
     private resolver: ComponentFactoryResolver,
-    private container: ViewContainerRef
+    private container: ViewContainerRef,
   ) {}
 
   ngOnInit() {
+    this.dynamicCreateComponent();
+    this.subscriberForEmitHandler();
+  }
+
+  private dynamicCreateComponent() {
     const factory = this.resolver.resolveComponentFactory(
       componentMapper[this.field.type]
     );
     this.componentRef = this.container.createComponent(factory);
     this.componentRef.instance.field = this.field;
     this.componentRef.instance.group = this.group;
+  }
 
-    if (this.componentRef.instance.emitHandler) {
-      this.componentRef.instance.emitHandler
-        .pipe(
-          takeUntil(this.destroy$)
-        )
-        .subscribe((event) => {
-          this.emitHandler.emit(event);
-        });
+  private subscriberForEmitHandler() {
+    if (this.componentRef.instance && !this.componentRef.instance.emitHandler) {
+      return;
     }
+
+    this.componentRef.instance.emitHandler
+      .pipe(
+        takeUntil(this.destroy$)
+      )
+      .subscribe((event) => {
+        this.emitHandler.emit(event);
+      });
   }
 
   ngOnDestroy() {

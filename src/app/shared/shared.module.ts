@@ -8,13 +8,13 @@ import { DynamicFormComponent } from '@shared/components/dynamic-form/dynamic-fo
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { InputComponent } from '@shared/components/input/input.component';
 import { SelectComponent } from '@shared/components/select/select.component';
-import { DynamicFieldDirective } from '@shared/directives/dynamic-field/dynamic-field.directive';
+import { DynamicFieldComponent } from '@shared/components/dynamic-field/dynamic-field.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule, 
-    FormsModule, 
+    CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule,
   ],
@@ -27,12 +27,12 @@ import { RouterModule } from '@angular/router';
     ButtonComponent,
     InputComponent,
     SelectComponent,
-    DynamicFieldDirective,
+    DynamicFieldComponent,
   ],
   exports: [
     ErrorMessagesComponent,
     DynamicFormComponent,
-    DynamicFieldDirective,
+    DynamicFieldComponent
   ],
   entryComponents: [
     InputComponent,

@@ -7,12 +7,11 @@
     *ngFor="let field of fields"
     class="dynamic-form__control {{ field.name || field.colorClass }}"
   >
-    <ng-container
-      dynamicField
+    <app-dynamic-field
       [field]="field"
       [group]="form"
       (emitHandler)="emitHandler.emit($event)"
     >
-    </ng-container>
+    </app-dynamic-field>
   </div>
 </form>

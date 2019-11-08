@@ -9,6 +9,7 @@ describe('DynamicFormComponent', () => {
   let fixture: ComponentFixture<DynamicFormComponent>;
 
   const formBuilder: FormBuilder = new FormBuilder();
+  // TODO: move to separate file testing/mocks
   const fieldsName = {
     firstName: 'Naomi',
     middleInitial: '',

@@ -4,7 +4,10 @@ import {
   EventEmitter,
   Input,
   OnInit,
-  Output
+  Output,
+  ViewChild,
+  ComponentFactoryResolver,
+  ViewContainerRef
 } from '@angular/core';
 import {
   FormGroup,
@@ -18,7 +21,7 @@ import { FieldConfig } from '@shared/interfaces/field.interface';
   templateUrl: './dynamic-form.component.html',
   styles: []
 })
-export class DynamicFormComponent implements OnInit {
+export class DynamicFormComponent implements OnInit  {
   @Input() fields: FieldConfig[] = [];
 
   @Output() save: EventEmitter<any> = new EventEmitter<any>();
@@ -30,7 +33,12 @@ export class DynamicFormComponent implements OnInit {
     return this.form.value;
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    public resolver: ComponentFactoryResolver,
+    public container: ViewContainerRef
+  ) {
+  }
 
   ngOnInit() {
     this.form = this.createControl();
