@@ -1,11 +1,9 @@
-import { Validator } from './../../interfaces/field.interface';
 import {
   Component,
   EventEmitter,
   Input,
   OnInit,
   Output,
-  ViewChild,
   ComponentFactoryResolver,
   ViewContainerRef
 } from '@angular/core';
@@ -13,8 +11,10 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
+  FormControl,
 } from '@angular/forms';
-import { FieldConfig } from '@shared/interfaces/field.interface';
+import { FieldConfig, Validator } from '@shared/interfaces/field.interface';
+import { PersonalInfoFieldsName } from '@shared/interfaces/personal-info.interface';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -29,7 +29,7 @@ export class DynamicFormComponent implements OnInit  {
 
   form: FormGroup;
 
-  get value() {
+  get value(): PersonalInfoFieldsName {
     return this.form.value;
   }
 
@@ -41,7 +41,7 @@ export class DynamicFormComponent implements OnInit  {
   }
 
   ngOnInit() {
-    this.form = this.createControl();
+    this.form = this.createControls();
   }
 
   onSubmit(event: Event) {
@@ -54,19 +54,22 @@ export class DynamicFormComponent implements OnInit  {
     }
   }
 
-  private createControl(): FormGroup {
-    const group = this.fb.group({});
-    this.fields.forEach((field: FieldConfig) => {
-      if (field.type === 'button') {
-        return;
-      }
-      const control = this.fb.control(
-        field.value,
-        this.bindValidations(field.validations || [])
-      );
-      group.addControl(field.name, control);
-    });
-    return group;
+  private createControls(): FormGroup {
+    return this.fb.group(this.fields.reduce((acc: FormBuilder, field: FieldConfig) => {
+      const control = this.createControl(field);
+      return { ...acc, ...control };
+    }, {}));
+  }
+
+  private createControl(field: FieldConfig): {[key: string]: FormControl} {
+    if (field.type === 'button') {
+      return;
+    }
+    const control: FormControl = this.fb.control(
+      field.value,
+      this.bindValidations(field.validations || [])
+    );
+    return { [field.name]: control };
   }
 
   private bindValidations(validations: Validator[]): Validators {

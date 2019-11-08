@@ -1,3 +1,4 @@
+import { PersonalInfoFieldsName } from './../../../shared/interfaces/personal-info.interface';
 import { Component, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { DynamicFormComponent } from '@shared/components/dynamic-form/dynamic-form.component';
@@ -16,11 +17,11 @@ export class PersonalInfoComponent {
   constructor(private location: Location) {
   }
 
-  save(value) {
+  save(value: PersonalInfoFieldsName) {
     console.log(value);
   }
 
-  back(event) {
+  back() {
     this.location.back();
   }
 }

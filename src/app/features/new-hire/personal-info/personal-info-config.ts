@@ -1,6 +1,5 @@
 import { FieldConfig } from '@shared/interfaces/field.interface';
 import { Validators } from '@angular/forms';
-import { ValidationService } from '@services/validation/validation.service';
 
 const ZIP_CODE_MIN_LENGTH = 4;
 
@@ -145,7 +144,7 @@ const PERSONAL_INFO_FORM_CONFIG: FieldConfig[] = [
     type: 'button',
     label: 'Prew',
     colorClass: 'prew',
-    callbackHandler: (fn: any) => typeof fn === 'function' && fn.bind(this),
+    callbackHandler: 'back',
   },
   {
     type: 'button',

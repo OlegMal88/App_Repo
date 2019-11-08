@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { FieldConfig } from '@shared/interfaces/field.interface';
 
 const VALIDATION_REGEXP = {
@@ -19,7 +19,7 @@ export class ValidationService {
     return config[validatorName] || '';
   }
 
-  static emailValidator(control) {
+  static emailValidator(control: FormControl): { invalidEmail: boolean } | null {
     if (control.touched && control.value.match(VALIDATION_REGEXP.email)) {
       return null;
     }

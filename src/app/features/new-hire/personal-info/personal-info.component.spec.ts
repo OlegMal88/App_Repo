@@ -32,13 +32,14 @@ describe('PersonalInfoComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component)
+      .toBeTruthy();
   });
 
   describe('logic', () => {
     describe('back', () => {
       it('should move back location', () => {
-        component.back({});
+        component.back();
 
         expect(mockLocation.back)
         .toHaveBeenCalled();

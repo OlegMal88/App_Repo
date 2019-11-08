@@ -45,35 +45,40 @@ describe('ValidationService', () => {
     it('should has NOT error when not touched', () => {
       controlFirstName.markAsUntouched();
 
-      expect(service.hasError(field, group)).toBe(false);
+      expect(service.hasError(field, group))
+        .toBeFalsy();
     });
 
     it('should has NOT error when touched and input value', () => {
       controlFirstName.markAsTouched();
       controlFirstName.setValue('test value');
 
-      expect(service.hasError(field, group)).toBe(false);
+      expect(service.hasError(field, group))
+        .toBeFalsy();
     });
 
     it('should has error when touched but has no value', () => {
       controlFirstName.markAsTouched();
       controlFirstName.setValue('');
 
-      expect(service.hasError(field, group)).toBe(true);
+      expect(service.hasError(field, group))
+        .toBeTruthy();
     });
 
     it('should has NOT error when no validations', () => {
       const copyField = { ...field };
       copyField.validations = [];
 
-      expect(service.hasError(copyField, group)).toBe(false);
+      expect(service.hasError(copyField, group))
+        .toBeFalsy();
     });
 
     it('should has NOT error when no control name', () => {
       const copyField = { ...field };
       copyField.name = 'Undefined name';
 
-      expect(service.hasError(copyField, group)).toBe(false);
+      expect(service.hasError(copyField, group))
+        .toBeFalsy();
     });
   });
 
@@ -88,14 +93,16 @@ describe('ValidationService', () => {
       controlEmail.markAsTouched();
       controlEmail.setValue(notCorrectVal);
 
-      expect(ValidationService.emailValidator(controlEmail)).toEqual({ invalidEmail: true });
+      expect(ValidationService.emailValidator(controlEmail))
+        .toEqual({ invalidEmail: true });
     });
 
     it('should has NOT email error when correct value', () => {
       controlEmail.markAsTouched();
       controlEmail.setValue(correctValueExample);
 
-      expect(ValidationService.emailValidator(controlEmail)).toBeNull();
+      expect(ValidationService.emailValidator(controlEmail))
+        .toBeNull();
     });
   });
 
@@ -109,7 +116,8 @@ describe('ValidationService', () => {
         .find(item => control.errors && control.errors[item.name]);
       const name = validation && validation.name;
 
-      expect(ValidationService.getValidatorErrorMessage(name)).toEqual(expectMessage);
+      expect(ValidationService.getValidatorErrorMessage(name))
+        .toEqual(expectMessage);
     });
   });
 });

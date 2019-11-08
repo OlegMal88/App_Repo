@@ -33,7 +33,7 @@ describe('DynamicFieldComponent', () => {
     type: 'button',
     label: 'Prew',
     colorClass: 'prew',
-    callbackHandler: (fn: any) => typeof fn === 'function' && fn.bind(this),
+    callbackHandler: 'back',
   };
 
   const group = formBuilder.group({

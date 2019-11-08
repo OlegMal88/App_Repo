@@ -9,7 +9,7 @@
   <input
     [formControlName]="field.name"
     class="form-control"
-    id="{{ field.name }}"
+    [id]="field.name"
     [placeholder]="field.placeholder || ''"
     [ngClass]="{ 'error-input': isError }"
   />

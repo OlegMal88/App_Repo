@@ -3,12 +3,8 @@
     <button
       class="btn btn-{{ field.colorClass }}"
       type="submit"
-      [disabled]="field.disabled ? !group.valid : null"
-      (click)="
-        field.callbackHandler
-          ? field.callbackHandler(back($event))
-          : null
-      "
+      [disabled]="isDisabled"
+      (click)="callbackHandler(field, $event)"
     >
       {{ field.label }}
     </button>

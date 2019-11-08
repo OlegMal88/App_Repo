@@ -1,8 +1,10 @@
-import { DynamicFormComponent } from './dynamic-form.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+
 import { PERSONAL_INFO_FORM_CONFIG } from '@features/new-hire/personal-info/personal-info-config';
+import { PersonalInfoFieldsName } from '@shared/interfaces/personal-info.interface';
+import { DynamicFormComponent } from './dynamic-form.component';
 
 describe('DynamicFormComponent', () => {
   let component: DynamicFormComponent;
@@ -10,7 +12,7 @@ describe('DynamicFormComponent', () => {
 
   const formBuilder: FormBuilder = new FormBuilder();
   // TODO: move to separate file testing/mocks
-  const fieldsName = {
+  const fieldsName: PersonalInfoFieldsName = {
     firstName: 'Naomi',
     middleInitial: '',
     lastName: 'Test',
@@ -47,12 +49,12 @@ describe('DynamicFormComponent', () => {
 
   beforeEach(() => {
     component.fields = PERSONAL_INFO_FORM_CONFIG;
-    component.form = (component as any).createControl();
+    component.form = (component as any).createControls();
   });
 
   describe('ngOnInit', () => {
     it('should create form', () => {
-      component.form = (component as any).createControl();
+      component.form = (component as any).createControls();
 
       expect(Object.keys(component.form.controls)).toEqual(Object.keys(fieldsName));
     });
