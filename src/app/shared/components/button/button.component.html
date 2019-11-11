@@ -1,9 +1,9 @@
 <ng-container [formGroup]="group">
   <div class="form-group">
     <button
-      class="btn btn-{{ field.colorClass }}"
-      [class.field.colorClass]="true"
+      class="btn field"
       type="submit"
+      [ngClass]="field.colorClass"
       [disabled]="isDisabled"
       (click)="callbackHandler(field, $event)"
     >

@@ -104,18 +104,4 @@ describe('ValidationService', () => {
         .toBeNull();
     });
   });
-
-  describe('getValidatorErrorMessage', () => {
-    const expectMessage = 'Required';
-    it(`should has error when touched but has no value, message will be: ${expectMessage}`, () => {
-      controlFirstName.markAsTouched();
-      controlFirstName.setValue('');
-      const validation = field.validations
-        .find(item => controlFirstName.errors && controlFirstName.errors[item.name]);
-      const name = validation && validation.name;
-
-      expect(ValidationService.getValidatorErrorMessage(name))
-        .toEqual(expectMessage);
-    });
-  });
 });

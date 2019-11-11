@@ -36,9 +36,14 @@ export class DynamicFieldComponent implements OnInit {
   }
 
   private dynamicCreateComponent() {
+    if (!componentMapper[this.field.type]) {
+      return;
+    }
+
     const factory = this.resolver.resolveComponentFactory(
       componentMapper[this.field.type]
     );
+
     this.componentRef = this.container.createComponent(factory);
     this.componentRef.instance.field = this.field;
     this.componentRef.instance.group = this.group;

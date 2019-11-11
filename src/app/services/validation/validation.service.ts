@@ -11,15 +11,7 @@ const VALIDATION_REGEXP: ValidationRegExp = {
 @Injectable({
   providedIn: 'root'
 })
-export class ValidationService {
-  static getValidatorErrorMessage(validatorName: string, validatorValue?: any): string {
-    const config = {
-      required: 'Required',
-      invalidEmail: 'Invalid email address',
-    };
-    return config[validatorName] || '';
-  }
-
+class ValidationService {
   static emailValidator(control: FormControl): { invalidEmail: boolean } | null {
     if (control.touched && control.value.match(VALIDATION_REGEXP.email)) {
       return null;
@@ -36,3 +28,8 @@ export class ValidationService {
                                     .some(item => control.errors && control.errors[item.name]);
   }
 }
+
+export {
+  ValidationService,
+};
+

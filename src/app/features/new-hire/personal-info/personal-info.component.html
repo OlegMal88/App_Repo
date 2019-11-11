@@ -4,6 +4,7 @@
     <span>consectetur adipisicing elit.</span>
   </h1>
   <app-dynamic-form
+    [ngClass]="personalInfoFormClass"
     [fields]="personalInfoFormConfig"
     (save)="save($event)"
     (emitHandler)="back($event)"

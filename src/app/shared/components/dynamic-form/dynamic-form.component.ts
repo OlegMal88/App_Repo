@@ -21,7 +21,7 @@ import { PersonalInfoFieldsName } from '@shared/interfaces/personal-info.interfa
   templateUrl: './dynamic-form.component.html',
   styles: []
 })
-export class DynamicFormComponent implements OnInit  {
+export class DynamicFormComponent implements OnInit {
   @Input() fields: FieldConfig[] = [];
 
   @Output() save: EventEmitter<any> = new EventEmitter<any>();

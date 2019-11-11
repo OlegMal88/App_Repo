@@ -3,6 +3,10 @@ import { Validators } from '@angular/forms';
 
 const ZIP_CODE_MIN_LENGTH = 4;
 
+const FORM_CLASSES = {
+  personalInfo: 'personal-info-form',
+};
+
 const PERSONAL_INFO_FORM_CONFIG: FieldConfig[] = [
   {
     type: 'input',
@@ -143,17 +147,20 @@ const PERSONAL_INFO_FORM_CONFIG: FieldConfig[] = [
   {
     type: 'button',
     label: 'Prew',
-    colorClass: 'prew',
+    name: 'prew',
+    colorClass: 'btn-prew',
     callbackHandler: 'back',
   },
   {
     type: 'button',
+    name: 'next',
     label: 'Next',
-    colorClass: 'next',
+    colorClass: 'btn-next',
     disabled: true,
   },
 ];
 
 export {
   PERSONAL_INFO_FORM_CONFIG,
+  FORM_CLASSES,
 };
