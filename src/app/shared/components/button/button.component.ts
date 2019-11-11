@@ -9,17 +9,17 @@ import { FieldConfig } from '@shared/interfaces/field.interface';
 export class ButtonComponent {
   field: FieldConfig;
   group: FormGroup;
-  @Output() emitHandler: EventEmitter<any> = new EventEmitter();
+  @Output() emitHandler: EventEmitter<Event> = new EventEmitter();
 
   get isDisabled(): boolean {
     return this.field.disabled ? !this.group.valid : null;
   }
 
-  back(event) {
+  back(event: Event) {
     this.emitHandler.emit(event);
   }
 
-  callbackHandler(field, event) {
+  callbackHandler(field: FieldConfig, event: Event) {
     if (field.callbackHandler && this[field.callbackHandler]) {
       this[field.callbackHandler](event);
     }

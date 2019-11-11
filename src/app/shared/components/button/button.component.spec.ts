@@ -48,6 +48,7 @@ describe('ButtonComponent', () => {
   });
 
   describe('callbackHandler', () => {
+    const event = document.createEvent('Event');
     it('should check callbackHandler if exist', () => {
       component.field = {
         type: 'button',
@@ -55,13 +56,13 @@ describe('ButtonComponent', () => {
         colorClass: 'prew',
       };
 
-      expect(component.callbackHandler(component.field, {})).toBeNull();
+      expect(component.callbackHandler(component.field, event)).toBeNull();
     });
 
     it('should check callbackHandler if exist', () => {
       component.field = mockFieldButton;
       spyOn(component.emitHandler, 'emit');
-      component.back({});
+      component.back(event);
 
       expect(component.emitHandler.emit).toHaveBeenCalled();
     });

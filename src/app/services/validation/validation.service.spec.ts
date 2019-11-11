@@ -26,6 +26,7 @@ describe('ValidationService', () => {
   });
 
   const controlFirstName = group.get(field.name);
+  const copyField = { ...field };
 
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
@@ -66,7 +67,6 @@ describe('ValidationService', () => {
     });
 
     it('should has NOT error when no validations', () => {
-      const copyField = { ...field };
       copyField.validations = [];
 
       expect(service.hasError(copyField, group))
@@ -74,7 +74,6 @@ describe('ValidationService', () => {
     });
 
     it('should has NOT error when no control name', () => {
-      const copyField = { ...field };
       copyField.name = 'Undefined name';
 
       expect(service.hasError(copyField, group))
@@ -94,7 +93,7 @@ describe('ValidationService', () => {
       controlEmail.setValue(notCorrectVal);
 
       expect(ValidationService.emailValidator(controlEmail))
-        .toEqual({ invalidEmail: true });
+        .toEqual(jasmine.objectContaining({ invalidEmail: true }));
     });
 
     it('should has NOT email error when correct value', () => {
@@ -106,14 +105,13 @@ describe('ValidationService', () => {
     });
   });
 
-  describe('static method getValidatorErrorMessage', () => {
+  describe('getValidatorErrorMessage', () => {
     const expectMessage = 'Required';
     it(`should has error when touched but has no value, message will be: ${expectMessage}`, () => {
-      const control = controlFirstName;
-      control.markAsTouched();
-      control.setValue('');
+      controlFirstName.markAsTouched();
+      controlFirstName.setValue('');
       const validation = field.validations
-        .find(item => control.errors && control.errors[item.name]);
+        .find(item => controlFirstName.errors && controlFirstName.errors[item.name]);
       const name = validation && validation.name;
 
       expect(ValidationService.getValidatorErrorMessage(name))

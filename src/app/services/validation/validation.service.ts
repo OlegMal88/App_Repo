@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FieldConfig } from '@shared/interfaces/field.interface';
+import { ValidationRegExp } from '@shared/interfaces/validation-regexp.interface';
 
-const VALIDATION_REGEXP = {
+const VALIDATION_REGEXP: ValidationRegExp = {
   // tslint:disable-next-line: max-line-length
   email: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
 };

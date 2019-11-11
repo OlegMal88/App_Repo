@@ -5,13 +5,9 @@ import {
     ViewContainerRef,
     Output,
     EventEmitter,
-    OnDestroy,
     Component
   } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 import { FieldConfig } from '@shared/interfaces/field.interface';
 import { componentMapper } from './form-components';
@@ -21,13 +17,12 @@ import { componentMapper } from './form-components';
   selector: 'app-dynamic-field',
   template: '',
 })
-export class DynamicFieldComponent implements OnInit, OnDestroy {
+export class DynamicFieldComponent implements OnInit {
   @Input() field: FieldConfig;
   @Input() group: FormGroup;
 
   @Output() emitHandler: EventEmitter<any> = new EventEmitter();
 
-  destroy$: Subject<boolean> = new Subject<boolean>();
   componentRef: any;
 
   constructor(
@@ -55,16 +50,8 @@ export class DynamicFieldComponent implements OnInit, OnDestroy {
     }
 
     this.componentRef.instance.emitHandler
-      .pipe(
-        takeUntil(this.destroy$)
-      )
       .subscribe((event) => {
         this.emitHandler.emit(event);
       });
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.unsubscribe();
   }
 }

@@ -83,17 +83,17 @@ describe('DynamicFieldComponent', () => {
   });
 
   describe('ngOnInit', () => {
-    it('should call dynamicCreateComponent', () => {
+    beforeEach(() => {
       spyOn((component as any), 'dynamicCreateComponent');
+      spyOn((component as any), 'subscriberForEmitHandler');
       component.ngOnInit();
+    });
 
+    it('should create dymamic component', () => {
       expect((component as any).dynamicCreateComponent).toHaveBeenCalled();
     });
 
-    it('should call subscriberForEmitHandler', () => {
-      spyOn((component as any), 'subscriberForEmitHandler');
-      component.ngOnInit();
-
+    it('should subscribe for emit handler', () => {
       expect((component as any).subscriberForEmitHandler).toHaveBeenCalled();
     });
   });
