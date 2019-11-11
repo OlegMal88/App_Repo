@@ -5,13 +5,10 @@
     [id]="field.name"
     [formControlName]="field.name"
     [ngClass]="{ 'error-input': isError }"
+    [value]="field.value"
   >
     >
-    <option
-      *ngFor="let item of field.options; let inx = index"
-      [value]="item"
-      [selected]="inx === 0 ? item : null"
-    >
+    <option *ngFor="let item of field.options" [value]="item">
       {{ item }}
     </option>
   </select>

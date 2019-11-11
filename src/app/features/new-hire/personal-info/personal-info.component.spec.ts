@@ -36,35 +36,33 @@ describe('PersonalInfoComponent', () => {
       .toBeTruthy();
   });
 
-  describe('logic', () => {
-    describe('back', () => {
-      it('should move back location', () => {
-        component.back();
+  describe('back', () => {
+    it('should move back location', () => {
+      component.back();
 
-        expect(mockLocation.back)
-        .toHaveBeenCalled();
-      });
+      expect(mockLocation.back)
+      .toHaveBeenCalled();
+    });
+  });
+
+  describe('save', () => {
+    let originFunc: any;
+
+    beforeEach(() => {
+      originFunc = console.log;
+      console.log = jasmine.createSpy('log');
     });
 
-    describe('save', () => {
-      let originFunc: any;
+    afterEach(() => {
+      console.log = originFunc;
+    });
 
-      beforeEach(() => {
-        originFunc = console.log;
-        console.log = jasmine.createSpy('log');
-      });
+    it('should save form', () => {
+      const DATA_TO_SAVE: any = {};
+      component.save(DATA_TO_SAVE);
 
-      afterEach(() => {
-        console.log = originFunc;
-      });
-
-      it('should save form', () => {
-        const DATA_TO_SAVE: any = {};
-        component.save(DATA_TO_SAVE);
-
-        expect(console.log)
-        .toHaveBeenCalledWith(DATA_TO_SAVE);
-      });
+      expect(console.log)
+      .toHaveBeenCalledWith(DATA_TO_SAVE);
     });
   });
 });
