@@ -1,11 +1,35 @@
 .btn {
+  width: 100%;
+  color: white;
   &-primary {
-    width: 100%;
     background: $c-primary;
-    color: white;
     max-width: 400px;
+
+    &:disabled {
+      @include disabled($c-primary);
+    }
+
+    &:hover {
+      @include hover($c-primary);
+    }
   }
-  &:hover {
-    background: $c-hover-primary;
+  &-next {
+    background: $c-blue;
+    &:disabled {
+      @include disabled($c-blue);
+    }
+    &:hover:not(:disabled) {
+      @include hover($c-blue);
+    }
+  }
+  &-prew {
+    width: 100%;
+    background: $c-grey;
+    &:disabled {
+      @include disabled($c-grey);
+    }
+    &:hover:not(:disabled) {
+      @include hover($c-grey);
+    }
   }
 }

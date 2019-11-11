@@ -1,0 +1,19 @@
+<div class="form-group" [formGroup]="group">
+  <label for="state">{{ field.label }}</label>
+  <select
+    class="custom-select"
+    [id]="field.name"
+    [formControlName]="field.name"
+    [ngClass]="{ 'error-input': isError }"
+    [value]="field.value"
+  >
+    >
+    <option *ngFor="let item of field.options" [value]="item">
+      {{ item }}
+    </option>
+  </select>
+  <app-error-messages
+    [group]="group"
+    [field]="field"
+  ></app-error-messages>
+</div>

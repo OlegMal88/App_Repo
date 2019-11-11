@@ -66,7 +66,7 @@ describe('BaseHttpService', () => {
     };
 
     it('should return Error mess', () => {
-      errorMessage = `Backend returned code ${mockErrorResponse.status}:`
+      errorMessage = `Backend returned code ${mockErrorResponse.status}: `
         + `${mockErrorResponse.body.error}`;
       scheduler
         .expectObservable((sut as any).handleError(mockErrorResponse))

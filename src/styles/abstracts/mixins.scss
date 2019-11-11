@@ -1,0 +1,9 @@
+@mixin disabled($color) {
+  background: $color;
+  border-color: $color;
+  opacity: 0.5;
+}
+@mixin hover($color) {
+  background: darken($color, 9%);
+  color: white;
+}

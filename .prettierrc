@@ -3,7 +3,7 @@
   "semi": true,
   "singleQuote": true,
   "trailingComma": "es5",
-  "printWidth": 80,
+  "printWidth": 70,
   "overrides": [
     {
       "files": ".prettierrc",

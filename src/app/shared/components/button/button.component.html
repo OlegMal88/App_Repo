@@ -1,0 +1,13 @@
+<ng-container [formGroup]="group">
+  <div class="form-group">
+    <button
+      class="btn field"
+      type="submit"
+      [ngClass]="field.colorClass"
+      [disabled]="isDisabled"
+      (click)="callbackHandler(field, $event)"
+    >
+      {{ field.label }}
+    </button>
+  </div>
+</ng-container>

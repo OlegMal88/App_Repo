@@ -1,0 +1,21 @@
+<div class="form-group" [formGroup]="group">
+  <label for="{{ field.name }}">{{ field.label }}</label>
+  <span
+    *ngIf="field.tooltip"
+    class="tooltip-icon"
+    [title]="field.tooltip"
+    >?</span
+  >
+  <input
+    [formControlName]="field.name"
+    class="form-control"
+    [id]="field.name"
+    [placeholder]="field.placeholder || ''"
+    [ngClass]="{ 'error-input': isError }"
+  />
+
+  <app-error-messages
+    [group]="group"
+    [field]="field"
+  ></app-error-messages>
+</div>

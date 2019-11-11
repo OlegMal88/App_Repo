@@ -1,0 +1,54 @@
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+.personal-info {
+  .title {
+    span {
+      display: block;
+    }
+  }
+}
+
+.personal-info-form {
+  .dynamic-form {
+    .next,
+    .prew {
+      width: 48%;
+    }
+
+    @media (min-width: 769px) {
+      &__control {
+        width: 45%;
+        margin: 0 15px;
+
+        &.firstName {
+          width: $md-input;
+        }
+
+        &.middleInitial {
+          width: $sm-input;
+        }
+
+        &.otherLastName {
+          margin-right: 50%;
+        }
+
+        &.streetAdress {
+          width: 100%;
+        }
+
+        &.state {
+          width: $sm-input;
+        }
+
+        &.zipCode {
+          width: $md-input;
+        }
+      }
+      .next,
+      .prew {
+        width: 45%;
+      }
+    }
+  }
+}

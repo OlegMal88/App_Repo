@@ -1,0 +1,18 @@
+<form
+  class="dynamic-form form-group"
+  [formGroup]="form"
+  (submit)="onSubmit($event)"
+>
+  <div
+    *ngFor="let field of fields"
+    class="dynamic-form__control"
+    [ngClass]="field.name || field.colorClass"
+  >
+    <app-dynamic-field
+      [field]="field"
+      [group]="form"
+      (emitHandler)="emitHandler.emit($event)"
+    >
+    </app-dynamic-field>
+  </div>
+</form>

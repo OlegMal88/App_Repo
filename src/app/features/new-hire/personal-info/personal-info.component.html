@@ -1,0 +1,13 @@
+<div class="content personal-info">
+  <h1 class="title">
+    Lorem ipsum dolor sit amet
+    <span>consectetur adipisicing elit.</span>
+  </h1>
+  <app-dynamic-form
+    [ngClass]="personalInfoFormClass"
+    [fields]="personalInfoFormConfig"
+    (save)="save($event)"
+    (emitHandler)="back($event)"
+  >
+  </app-dynamic-form>
+</div>
